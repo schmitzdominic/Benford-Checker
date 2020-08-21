@@ -1,9 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {UploadService} from "../../../services/upload/upload.service";
-import {catchError, map} from "rxjs/operators";
-import {HttpErrorResponse, HttpEventType} from "@angular/common/http";
-import {of} from "rxjs";
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-upload',
@@ -13,27 +10,60 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class UploadComponent implements OnInit {
 
   form: FormGroup;
-  error: string;
-  uploadResponse = { status: '', message: '', filePath: '' };
+  maxFileSize = 10485760;
+  validFileType = [
+    'application/vnd.ms-excel'
+  ]
 
-  value = 'Clear me';
-
-  constructor(private formBuilder: FormBuilder, private uploadService: UploadService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      avatar: ['']
+      csv: ['']
     });
   }
 
   onFileChange(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.uploadService.upload(file).subscribe(
-        (res) => this.uploadResponse = res,
-        (err) => this.error = err
-      );
+    const file = event.target.files[0];
+    console.dir(file);
+    if (this.isValid(file)) {
+
+
+      let reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = () => {
+        let csvData = reader.result;
+
+        // TODO:
+        // Import captcha and limit to 10mb files
+        // Create a Service to calculate Benford
+        // Proceed a loading spinner during calculating
+        let csvRecordsArray = (<string>csvData).split(/\r\n|\n|,/);
+        csvRecordsArray.forEach(data => {
+          if (Number(data)) {
+            console.log("NUMERIC: " + data);
+          }
+        })
+        console.dir(csvRecordsArray);
+
+        this.router.navigate(['/result']);
+      }
     }
   }
+
+  isValid(file): boolean {
+    if (!this.validFileType.includes(file.type)) {
+      return false;
+    }
+
+    if (file.legth > this.maxFileSize) {
+      // TODO: Popup Message
+      console.log("File to big! Max size is 10Mb")
+      return false;
+    }
+    return true;
+  }
+
+
 
 }

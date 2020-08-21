@@ -10,7 +10,6 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { IngestComponent } from './pages/ingest/ingest.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { FooterComponent } from './pages/footer/footer.component';
-import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSliderModule} from "@angular/material/slider";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -20,6 +19,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { UploadComponent } from './pages/ingest/upload/upload.component';
 import { TextFieldComponent } from './pages/ingest/text-field/text-field.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { ResultComponent } from './pages/result/result.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     IngestComponent,
     FooterComponent,
     UploadComponent,
-    TextFieldComponent
+    TextFieldComponent,
+    ResultComponent
   ],
   imports: [
 
