@@ -1,6 +1,16 @@
 <mat-grid-list cols = "3" rowHeight="100px">
-  <mat-grid-tile [colspan] = "3" [rowspan]="5">
-    <span>{{ 'app-component.title' | translate }}</span>
-    <span>{{ 'app-component.text' | translate }}</span>
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <span class="mat-display-4">1.</span>
+    <span class="mat-display-1">{{ 'ingest.description' | translate }}</span>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan] = "3" [rowspan]="2">
+    <mat-tab-group>
+      <mat-tab label="{{ 'ingest.tabs.tab1' | translate }}">
+        <app-upload></app-upload>
+      </mat-tab>
+      <mat-tab label="{{ 'ingest.tabs.tab2' | translate }}">
+        <app-text-field></app-text-field>
+      </mat-tab>
+    </mat-tab-group>
   </mat-grid-tile>
 </mat-grid-list>

@@ -8,6 +8,8 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class AppComponent {
 
+  title = "Benford Checker"
+
   constructor(private translate: TranslateService) {
     // set browser language
     const  currentLanguage  =  this.translate.getBrowserLang();

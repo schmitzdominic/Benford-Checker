@@ -1,6 +1,13 @@
 {
   "app-component": {
     "title": "Benford Checker",
-    "text": "This is a demo text!"
+    "description": "This is a demo text!"
+  },
+  "ingest": {
+    "description": "Adding Data",
+    "tabs": {
+      "tab1": "Upload",
+      "tab2": "Textfield"
+    }
   }
 }

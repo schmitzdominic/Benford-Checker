@@ -10,12 +10,24 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { IngestComponent } from './pages/ingest/ingest.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { FooterComponent } from './pages/footer/footer.component';
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSliderModule} from "@angular/material/slider";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
+import { UploadComponent } from './pages/ingest/upload/upload.component';
+import { TextFieldComponent } from './pages/ingest/text-field/text-field.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
     AppComponent,
     IngestComponent,
-    FooterComponent
+    FooterComponent,
+    UploadComponent,
+    TextFieldComponent
   ],
   imports: [
 
@@ -35,7 +47,15 @@ import { FooterComponent } from './pages/footer/footer.component';
     }),
 
     // everything else
-    MatGridListModule
+    MatGridListModule,
+    MatInputModule,
+    MatSliderModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTabsModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
 
   ],
   providers: [],

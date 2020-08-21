@@ -1,0 +1,19 @@
+<mat-grid-list cols = "3" rowHeight="100px">
+  <mat-grid-tile [colspan] = "3" [rowspan]="1">
+    <!--<mat-form-field class="example-form-field">
+      <mat-label>Clearable input</mat-label>
+      <input matInput type="file" name="avatar" (change)="onFileChange($event)">
+    </mat-form-field>-->
+
+
+    <form [formGroup]="form">
+
+
+      <button (click)="fileInput.click()" mat-fab color="primary" aria-label="upload">
+        <mat-icon>publish</mat-icon>
+        <input #fileInput type="file" name="csv" (change)="onFileChange($event)"  style="display:none;"/>
+      </button>
+
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

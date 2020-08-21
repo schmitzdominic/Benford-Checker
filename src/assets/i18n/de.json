@@ -1,6 +1,13 @@
 {
   "app-component": {
     "title": "Benford Checker",
-    "text": "Das ist ein Demonstrations-Text!"
+    "description": "Willkommen! Mithilfe des Benford Checkers, ist es möglich einen Datensatz von Zahlen auf Benfords Gesetzt hin zu überprüfen. Laden Sie dazu einfach eine .csv datei mit einer Spalte hoch."
+  },
+  "ingest": {
+    "description": "Daten hinzufügen",
+    "tabs": {
+      "tab1": "Upload",
+      "tab2": "Textfeld"
+    }
   }
 }
