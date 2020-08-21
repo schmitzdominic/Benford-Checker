@@ -1,2 +1,10 @@
-<span>{{ 'app-component.title' | translate }}</span>
-<span>{{ 'app-component.text' | translate }}</span>
+<mat-grid-list cols = "3" rowHeight="100px">
+  <!-- Title -->
+  <mat-grid-tile [colspan] = "3" [rowspan]="2">
+    Title
+  </mat-grid-tile>
+</mat-grid-list>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

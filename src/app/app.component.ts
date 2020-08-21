@@ -7,7 +7,6 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'benford-checker';
 
   constructor(private translate: TranslateService) {
     // set browser language

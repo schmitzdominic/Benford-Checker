@@ -7,10 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { IngestComponent } from './pages/ingest/ingest.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IngestComponent,
+    FooterComponent
   ],
   imports: [
 
@@ -27,9 +32,10 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
 
     // everything else
+    MatGridListModule
 
   ],
   providers: [],
