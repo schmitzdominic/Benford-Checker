@@ -11,6 +11,8 @@ export class AppComponent {
 
   constructor(private translate: TranslateService) {
     // set browser language
-    translate.setDefaultLang(this.translate.getBrowserLang());
+    const  currentLanguage  =  this.translate.getBrowserLang();
+    this.translate.setDefaultLang(currentLanguage);
+    this.translate.use(currentLanguage);
   }
 }
