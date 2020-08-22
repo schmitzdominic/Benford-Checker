@@ -68,7 +68,7 @@ import {MatTableModule} from "@angular/material/table";
 
   ],
   providers: [
-    {provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Le5_8EZAAAAANcVuZWc7KMGJKd97u5n6R3LC95L'},
+    {provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LejH8IZAAAAAMV0EEjkg_6F7cdMdvG1Pl9EgT6b'},
   ],
   bootstrap: [AppComponent]
 })

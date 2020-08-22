@@ -27,8 +27,6 @@ export class ResultComponent implements OnInit {
   ngOnInit(): void {
     this.result = history.state.data;
     this.fillTable();
-    console.dir(this.result);
-    console.dir(this.tableData);
   }
 
   fillTable() {
