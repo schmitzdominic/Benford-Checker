@@ -14,7 +14,6 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.result = history.state.data;
-    console.dir(this.result);
   }
 
 }

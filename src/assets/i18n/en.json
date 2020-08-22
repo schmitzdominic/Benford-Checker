@@ -8,9 +8,9 @@
     "tabs": {
       "tab1": "Upload",
       "tab2": "Textfield"
-    },
-    "result": {
-      "description": "Interpretation"
     }
+  },
+  "result": {
+    "description": "Interpretation"
   }
 }

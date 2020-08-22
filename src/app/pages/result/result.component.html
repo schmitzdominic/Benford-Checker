@@ -1,1 +1,8 @@
-<p>result works!</p>
+<mat-grid-list cols = "3" rowHeight="100px">
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <span class="mat-display-2">{{ 'result.description' | translate }}</span>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan] = "3" [rowspan]="2">
+    <span>RESULTS</span>
+  </mat-grid-tile>
+</mat-grid-list>
