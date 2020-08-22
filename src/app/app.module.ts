@@ -21,6 +21,8 @@ import { TextFieldComponent } from './pages/ingest/text-field/text-field.compone
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ResultComponent } from './pages/result/result.component';
 import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import { GroupedBarChartComponent } from './components/grouped-bar-chart/grouped-bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
     FooterComponent,
     UploadComponent,
     TextFieldComponent,
-    ResultComponent
+    ResultComponent,
+    GroupedBarChartComponent
   ],
   imports: [
 
@@ -50,6 +53,7 @@ import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
 
     // everything else
     RecaptchaV3Module,
+    NgxChartsModule,
     MatGridListModule,
     MatInputModule,
     MatSliderModule,

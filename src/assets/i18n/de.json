@@ -11,6 +11,15 @@
     }
   },
   "result": {
-    "description": "Auswertung"
+    "description": "Auswertung",
+    "buttons": {
+      "new": "Neue Auswertung"
+    }
+  },
+  "charts": {
+    "grouped-bar-chart": {
+      "legend-title": "Legende",
+      "y-axis": "Prozent"
+    }
   }
 }

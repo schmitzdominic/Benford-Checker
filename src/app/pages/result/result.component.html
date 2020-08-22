@@ -2,7 +2,12 @@
   <mat-grid-tile [colspan]="3" [rowspan]="1">
     <span class="mat-display-2">{{ 'result.description' | translate }}</span>
   </mat-grid-tile>
-  <mat-grid-tile [colspan] = "3" [rowspan]="2">
-    <span>RESULTS</span>
+  <mat-grid-tile [colspan] = "3" [rowspan]="5">
+    <app-grouped-bar-chart
+      [result]="result"
+    ></app-grouped-bar-chart>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <button mat-raised-button color="primary" routerLink="">{{ 'result.buttons.new' | translate }}</button>
   </mat-grid-tile>
 </mat-grid-list>

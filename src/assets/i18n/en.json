@@ -11,6 +11,15 @@
     }
   },
   "result": {
-    "description": "Interpretation"
+    "description": "Evaluation",
+    "buttons": {
+      "new": "New Evaluation"
+    }
+  },
+  "charts": {
+    "grouped-bar-chart": {
+      "legend-title": "Legend",
+      "y-axis": "Percentage"
+    }
   }
 }
