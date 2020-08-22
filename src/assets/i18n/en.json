@@ -13,7 +13,18 @@
   "result": {
     "description": "Evaluation",
     "buttons": {
-      "new": "New Evaluation"
+      "new": "Upload new data"
+    },
+    "tabs": {
+      "tab1": "Chart",
+      "tab2": "Table"
+    },
+    "table": {
+      "col1": "Number",
+      "col2": "Frequency",
+      "col3": "Percentage",
+      "col4": "Benford",
+      "col5": "Difference"
     }
   },
   "charts": {

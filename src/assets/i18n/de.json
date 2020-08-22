@@ -13,7 +13,18 @@
   "result": {
     "description": "Auswertung",
     "buttons": {
-      "new": "Neue Auswertung"
+      "new": "Neue Daten hochladen"
+    },
+    "tabs": {
+      "tab1": "Chart",
+      "tab2": "Tabelle"
+    },
+    "table": {
+      "col1": "Nummer",
+      "col2": "Häufigkeit",
+      "col3": "Prozentuell",
+      "col4": "Benford",
+      "col5": "Abweichung"
     }
   },
   "charts": {

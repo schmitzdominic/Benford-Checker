@@ -13,7 +13,7 @@ export class GroupedBarChartComponent implements OnInit {
   result: Result;
 
   multi: any[];
-  view: any[] = [700, 400];
+  view: any[] = [700, 450];
 
   // options
   showXAxis: boolean = true;
