@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Result} from "../../models/result.model";
+import {Router} from "@angular/router";
 
 export interface PeriodicElement {
   position: number;
@@ -21,11 +22,14 @@ export class ResultComponent implements OnInit {
   displayedColumns: string[] = ['position', 'frequency', 'percentage', 'benfordPercentage', 'difference'];
   tableData: PeriodicElement[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
     this.result = history.state.data;
+    if (!this.result) {
+      this.router.navigate(['/']);
+    }
     this.fillTable();
   }
 
