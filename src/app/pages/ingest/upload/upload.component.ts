@@ -4,6 +4,9 @@ import {Router} from "@angular/router";
 import {OnExecuteData, ReCaptchaV3Service} from "ng-recaptcha";
 import {Subscription} from "rxjs";
 import {RecaptchaService} from "../../../services/recaptcha/recaptcha.service";
+import {ConvertService} from "../../../services/convert/convert.service";
+import {BenfordService} from "../../../services/benford/benford.service";
+import {Result} from "../../../models/result.model";
 
 @Component({
   selector: 'app-upload',
@@ -13,6 +16,8 @@ import {RecaptchaService} from "../../../services/recaptcha/recaptcha.service";
 export class UploadComponent implements OnInit, OnDestroy {
 
   public readonly executionLog: OnExecuteData[] = [];
+
+  result: Result;
 
   recaptchaExecute: Subscription;
   recaptchaOnExecute: Subscription;
@@ -26,6 +31,8 @@ export class UploadComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder,
               private recaptchaV3Service: ReCaptchaV3Service,
               private recaptchaService: RecaptchaService,
+              private convert: ConvertService,
+              private benford: BenfordService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -52,7 +59,6 @@ export class UploadComponent implements OnInit, OnDestroy {
 
   onFileChange(event) {
     const file = event.target.files[0];
-    console.dir(file);
     if (this.isValid(file)) {
       this.readFile(file);
     }
@@ -62,21 +68,13 @@ export class UploadComponent implements OnInit, OnDestroy {
     let reader = new FileReader();
     reader.readAsText(file);
     reader.onload = () => {
-      let csvData = reader.result;
-
-      // TODO:
-      // Import captcha
-      // Create a Service to calculate Benford
-      // Proceed a loading spinner during calculating
-      let csvRecordsArray = (<string>csvData).split(/\r\n|\n|,/);
-      csvRecordsArray.forEach(data => {
-        if (Number(data)) {
-          console.log("NUMERIC: " + data);
-        }
-      })
-      console.dir(csvRecordsArray);
-
-      this.router.navigate(['/result']);
+      const rawList = this.convert.fromTextToList(reader.result);
+      this.result = this.benford.calculate(rawList);
+      if (this.result) {
+        this.router.navigate(['/result'], {state: {data: this.result}});
+      } else {
+        // TODO: Message that something is going wrong!
+      }
     }
   }
 
@@ -92,7 +90,7 @@ export class UploadComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    if (file.legth > this.maxFileSize) {
+    if (file.size > this.maxFileSize) {
       // TODO: Message
       console.log("File to big! Max size is 10Mb");
       return false;

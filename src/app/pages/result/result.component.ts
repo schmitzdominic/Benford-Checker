@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Result} from "../../models/result.model";
 
 @Component({
   selector: 'app-result',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
+  result: Result;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.result = history.state.data;
+    console.dir(this.result);
   }
 
 }
