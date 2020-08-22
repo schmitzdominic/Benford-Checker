@@ -20,6 +20,7 @@ import { UploadComponent } from './pages/ingest/upload/upload.component';
 import { TextFieldComponent } from './pages/ingest/text-field/text-field.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ResultComponent } from './pages/result/result.component';
+import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ResultComponent } from './pages/result/result.component';
     }),
 
     // everything else
+    RecaptchaV3Module,
     MatGridListModule,
     MatInputModule,
     MatSliderModule,
@@ -59,7 +61,9 @@ import { ResultComponent } from './pages/result/result.component';
     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Le5_8EZAAAAANcVuZWc7KMGJKd97u5n6R3LC95L' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 <mat-grid-list cols = "3" rowHeight="100px">
   <mat-grid-tile [colspan] = "3" [rowspan]="1">
     <form [formGroup]="form">
-      <button (click)="fileInput.click()" mat-fab color="primary" aria-label="upload">
+      <button *ngIf="executionLog.length > 0" (click)="fileInput.click()" mat-fab color="primary" aria-label="upload">
         <mat-icon>publish</mat-icon>
         <input #fileInput type="file" accept=".csv" name="csv" (change)="onFileChange($event)"  style="display:none;"/>
       </button>
