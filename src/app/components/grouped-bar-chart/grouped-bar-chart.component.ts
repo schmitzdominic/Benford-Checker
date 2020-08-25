@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Result} from "../../models/result.model";
-import {multi} from './data';
 
 @Component({
   selector: 'app-grouped-bar-chart',
@@ -12,7 +11,6 @@ export class GroupedBarChartComponent implements OnInit {
   @Input()
   result: Result;
 
-  multi: any[];
   view: any[] = [700, 450];
 
   // options
@@ -37,6 +35,7 @@ export class GroupedBarChartComponent implements OnInit {
 
   fillChart() {
     if (this.result) {
+      const multi = [];
       for (let i = 1; i <= 9; i++) {
         multi.push({
           "name": i + '',
@@ -55,5 +54,4 @@ export class GroupedBarChartComponent implements OnInit {
       Object.assign(this, {multi})
     }
   }
-
 }

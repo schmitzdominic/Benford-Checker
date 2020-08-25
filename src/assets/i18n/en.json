@@ -10,6 +10,16 @@
       "tab2": "Textfield"
     }
   },
+  "upload": {
+    "toggle": {
+      "csv": "Csv",
+      "excel": "Excel"
+    },
+    "excel": {
+      "choose-workbook": "Please choose a workbook",
+      "choose-column": "Please choose a column"
+    }
+  },
   "result": {
     "description": "Evaluation",
     "buttons": {

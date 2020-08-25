@@ -24,6 +24,11 @@ import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {GroupedBarChartComponent} from './components/grouped-bar-chart/grouped-bar-chart.component';
 import {MatTableModule} from "@angular/material/table";
+import {UploadExcelComponent} from './pages/ingest/upload/upload-excel/upload-excel.component';
+import {UploadCsvComponent} from './pages/ingest/upload/upload-csv/upload-csv.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatListModule} from "@angular/material/list";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -33,7 +38,9 @@ import {MatTableModule} from "@angular/material/table";
     UploadComponent,
     TextFieldComponent,
     ResultComponent,
-    GroupedBarChartComponent
+    GroupedBarChartComponent,
+    UploadExcelComponent,
+    UploadCsvComponent
   ],
   imports: [
 
@@ -65,6 +72,9 @@ import {MatTableModule} from "@angular/material/table";
     MatToolbarModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatButtonToggleModule,
+    MatListModule,
+    ScrollingModule,
 
   ],
   providers: [

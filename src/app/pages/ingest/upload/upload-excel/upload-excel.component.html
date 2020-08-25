@@ -1,0 +1,36 @@
+<section class="mat-typography">
+  <form [formGroup]="form">
+    <div *ngIf="state === getUploadExcelState.UPLOAD">
+      <button (click)="fileInput.click()" mat-fab color="primary" aria-label="upload">
+        <mat-icon>publish</mat-icon>
+        <input #fileInput type="file" accept=".xlsx" name="xlsx" (change)="onFileChange($event)" style="display:none;"/>
+      </button>
+    </div>
+    <div *ngIf="state === getUploadExcelState.CHOOSE_WORKBOOK">
+      <div style="padding: 20px">
+        <span>{{ 'upload.excel.choose-workbook' | translate }}</span>
+      </div>
+      <mat-selection-list
+        [multiple]="false"
+        (selectionChange)="onWorkBookChoose($event)">
+        <mat-list-option *ngFor="let sheetName of workBook.SheetNames"
+                         [value]="sheetName">
+          {{sheetName}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+    <div *ngIf="state === getUploadExcelState.CHOOSE_COLUMN">
+      <div style="padding: 20px">
+        <span>{{ 'upload.excel.choose-column' | translate }}</span>
+      </div>
+      <mat-selection-list
+        [multiple]="false"
+        (selectionChange)="onColumnChoose($event)">
+        <mat-list-option *ngFor="let column of columns"
+                         [value]="column">
+          {{column}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </form>
+</section>

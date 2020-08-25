@@ -1,0 +1,6 @@
+<form [formGroup]="form">
+  <button (click)="fileInput.click()" mat-fab color="primary" aria-label="upload">
+    <mat-icon>publish</mat-icon>
+    <input #fileInput type="file" accept=".csv" name="csv" (change)="onFileChange($event)" style="display:none;"/>
+  </button>
+</form>

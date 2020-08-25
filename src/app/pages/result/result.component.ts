@@ -35,6 +35,7 @@ export class ResultComponent implements OnInit {
 
   fillTable() {
     if (this.result) {
+      this.tableData = [];
       for (let i = 1; i <= 9; i++) {
         this.tableData.push({
           position: i,

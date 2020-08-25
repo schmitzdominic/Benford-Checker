@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Result} from "../../models/result.model";
 
 @Injectable({
@@ -6,7 +6,8 @@ import {Result} from "../../models/result.model";
 })
 export class BenfordService {
 
-  constructor() { }
+  constructor() {
+  }
 
   calculate(list): Result {
     const result = new Result();
@@ -15,7 +16,7 @@ export class BenfordService {
     list.forEach(entry => {
       const num = Number(entry);
       if (num) {
-        const firstNumber = Number(entry.charAt(0));
+        const firstNumber = Number(entry.toString().charAt(0));
         if (firstNumber) {
           // Set Benford numbers
           result.benford.push(firstNumber);
