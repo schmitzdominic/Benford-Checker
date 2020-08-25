@@ -1,0 +1,23 @@
+<section class="mat-typography">
+  <div class="header-background">
+    <mat-toolbar class="toolbar">
+      <mat-toolbar-row>
+        <span class="title">{{title}}</span>
+        <span class="spacer"></span>
+        <!-- Here buttons for footer! -->
+        <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">info</mat-icon>-->
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>language</mat-icon>
+          {{chosenLanguage.toUpperCase()}}
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="changeLanguage('de')" *ngIf="chosenLanguage === 'en'"
+                  mat-menu-item>{{availableLanguages[0]}}</button>
+          <button (click)="changeLanguage('en')" *ngIf="chosenLanguage === 'de'"
+                  mat-menu-item>{{availableLanguages[1]}}</button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+</section>

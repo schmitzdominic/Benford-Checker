@@ -9,7 +9,6 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {IngestComponent} from './pages/ingest/ingest.component';
 import {MatGridListModule} from "@angular/material/grid-list";
-import {FooterComponent} from './pages/footer/footer.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatSliderModule} from "@angular/material/slider";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -29,18 +28,20 @@ import {UploadCsvComponent} from './pages/ingest/upload/upload-csv/upload-csv.co
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatListModule} from "@angular/material/list";
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import {HeaderComponent} from './pages/header/header.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
     AppComponent,
     IngestComponent,
-    FooterComponent,
     UploadComponent,
     TextFieldComponent,
     ResultComponent,
     GroupedBarChartComponent,
     UploadExcelComponent,
-    UploadCsvComponent
+    UploadCsvComponent,
+    HeaderComponent
   ],
   imports: [
 
@@ -75,6 +76,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     MatButtonToggleModule,
     MatListModule,
     ScrollingModule,
+    MatMenuModule,
 
   ],
   providers: [

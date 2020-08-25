@@ -1,0 +1,29 @@
+.header-background {
+  background-image: url('../../../assets/images/header2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.mat-icon {
+  font-size: 20px;
+}

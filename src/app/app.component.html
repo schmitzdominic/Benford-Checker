@@ -1,19 +1,6 @@
-<!-- Title -->
-<mat-grid-list cols = "3" rowHeight="150px">
-  <mat-grid-tile [colspan]="3" [rowspan]="2">
-    <section class="mat-typography">
-      <h1 class="mat-display-4">
-        {{title}}
-      </h1>
-    </section>
-  </mat-grid-tile>
-  <!--<mat-grid-tile [colspan]="3" [rowspan]="1">
-    <span>{{ 'app-component.description' | translate }}</span>
-  </mat-grid-tile>-->
-</mat-grid-list>
+<!-- Header -->
+<app-header></app-header>
 <!-- Main part -->
 <main>
   <router-outlet></router-outlet>
 </main>
-<!-- Footer -->
-<app-footer></app-footer>
