@@ -26,6 +26,8 @@ export class GroupedBarChartComponent implements OnInit {
     domain: ['#392314', '#ff4800', '#AAAAAA']
   };
 
+  multi: any;
+
   constructor() {
   }
 
