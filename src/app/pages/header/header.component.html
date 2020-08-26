@@ -1,12 +1,13 @@
 <section class="mat-typography">
-  <div class="header-background">
-    <mat-toolbar class="toolbar">
+  <div class="header-background" [ngClass]="{'unfold': !fold, 'fold': fold}">
+    <mat-toolbar [ngClass]="{'toolbar-background-fading': !dark, 'toolbar-background-dark': dark}">
       <mat-toolbar-row>
         <span class="title">{{title}}</span>
         <span class="spacer"></span>
-        <!-- Here buttons for footer! -->
-        <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">info</mat-icon>-->
-        <button mat-button [matMenuTriggerFor]="menu">
+        <button mat-button class="toolbar-element">{{ 'header.toolbar.contact' | translate }}</button>
+        <button mat-button class="toolbar-element">{{ 'header.toolbar.about' | translate }}</button>
+        <button mat-button class="toolbar-element">{{ 'header.toolbar.privacy' | translate }}</button>
+        <button mat-button class="toolbar-element" [matMenuTriggerFor]="menu">
           <mat-icon>language</mat-icon>
           {{chosenLanguage.toUpperCase()}}
           <mat-icon>keyboard_arrow_down</mat-icon>
@@ -19,5 +20,10 @@
         </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
+    <div class="description-box" [ngClass]="{'unfade': !fold, 'fade': fold}">
+      <span class="description-title mat-display-2">{{'ingest.description-title' | translate }}</span>
+      <br/>
+      <span class="description-text mat-display-1">{{'ingest.description-text' | translate }}</span>
+    </div>
   </div>
 </section>

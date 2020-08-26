@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Result} from "../../models/result.model";
 import {Router} from "@angular/router";
+import {HeaderService} from "../../services/header/header.service";
 
 export interface PeriodicElement {
   position: number;
@@ -15,17 +16,20 @@ export interface PeriodicElement {
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnDestroy {
 
   result: Result;
 
   displayedColumns: string[] = ['position', 'frequency', 'percentage', 'benfordPercentage', 'difference'];
   tableData: PeriodicElement[] = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private headerService: HeaderService) {
   }
 
   ngOnInit(): void {
+    this.headerService.darkToolbar(true);
+    this.headerService.foldHeader(true);
     this.result = history.state.data;
     if (!this.result) {
       this.router.navigate(['/']);
@@ -50,6 +54,11 @@ export class ResultComponent implements OnInit {
 
   roundTwoDecimals(num): number {
     return Math.round((num + Number.EPSILON) * 100) / 100;
+  }
+
+  ngOnDestroy(): void {
+    this.headerService.darkToolbar(false);
+    this.headerService.foldHeader(false);
   }
 
 }

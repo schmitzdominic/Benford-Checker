@@ -1,9 +1,37 @@
+$HEADER_PATH: url('../../../assets/images/header.jpg');
+$SIDEMENU_TOP: rgba(0, 0, 0, 0.4);
+$SIDEMENU_BOTTOM: rgba(0, 0, 0, 0.0);
+$SIDEMENU_TRANSPARENCY: rgba(0, 0, 0, 0.4);
+$UNFOLD_HEIGHT: 500px;
+$FOLD_HEIGHT: 200px;
+
 .header-background {
-  background-image: url('../../../assets/images/header2.jpg');
+  background-image: $HEADER_PATH;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+}
+
+.unfold {
+  height: $UNFOLD_HEIGHT;
+  animation-name: unfold;
+  animation-duration: 1s;
+}
+
+.fold {
+  height: $FOLD_HEIGHT;
+  animation-name: fold;
+  animation-duration: 1s;
+}
+
+.unfade {
+  animation-name: unfade;
+  animation-duration: 2s;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
 }
 
 .title {
@@ -19,11 +47,98 @@
   flex: 1 1 auto;
 }
 
-.toolbar {
-  background: rgba(0, 0, 0, 0.4);
+.mat-icon {
+  font-size: 20px;
+}
+
+.toolbar-background-fading {
+  background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background-repeat: repeat-x;
   color: white;
 }
 
-.mat-icon {
-  font-size: 20px;
+.toolbar-background-dark {
+  animation-name: fadeBackground;
+  animation-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.toolbar-element {
+  padding-left: 50px;
+  animation-name: toolbarAnimation;
+  animation-duration: 1s;
+}
+
+.description-box {
+  text-align: center;
+  padding-top: 150px;
+}
+
+.description-title {
+  text-transform: uppercase;
+  color: white;
+}
+
+.description-text {
+  color: white;
+  white-space: pre-line;
+  opacity: 0.7;
+}
+
+@keyframes toolbarAnimation {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes fadeBackground {
+  0% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes fold {
+  0% {
+    height: $UNFOLD_HEIGHT;
+  }
+  100% {
+    height: $FOLD_HEIGHT;
+  }
+}
+
+@keyframes unfold {
+  0% {
+    height: $FOLD_HEIGHT;
+  }
+  100% {
+    height: $UNFOLD_HEIGHT;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes unfade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

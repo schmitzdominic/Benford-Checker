@@ -3,7 +3,16 @@
     "title": "Benford Checker",
     "description": "This is a demo text!"
   },
+  "header": {
+    "toolbar": {
+      "contact": "Contact",
+      "about": "About us",
+      "privacy": "Privacy"
+    }
+  },
   "ingest": {
+    "description-title": "ÜBERSETZEN!",
+    "description-text": "ÜBERSETZEN!",
     "description": "Adding Data",
     "tabs": {
       "tab1": "Upload",
