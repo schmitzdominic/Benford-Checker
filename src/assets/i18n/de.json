@@ -17,6 +17,12 @@
     "tabs": {
       "tab1": "Upload",
       "tab2": "Textfeld"
+    },
+    "options": {
+      "description": "Beschreibung",
+      "text-excel": "Hier können Sie eine .xlsx Datei auswählen. Damit eine Exceldatei ausgewertet werden kann, muss zuerst ein Arbeitsblatt und eine Spalte ausgewählt werden. Die Datei darf nicht größer als 10 Mb sein.",
+      "text-csv": "csv",
+      "text-box": "text"
     }
   },
   "upload": {

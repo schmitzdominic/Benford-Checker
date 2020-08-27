@@ -30,6 +30,7 @@ import {MatListModule} from "@angular/material/list";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {HeaderComponent} from './pages/header/header.component';
 import {MatMenuModule} from "@angular/material/menu";
+import { OptionsComponent } from './pages/ingest/options/options.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatMenuModule} from "@angular/material/menu";
     GroupedBarChartComponent,
     UploadExcelComponent,
     UploadCsvComponent,
-    HeaderComponent
+    HeaderComponent,
+    OptionsComponent
   ],
   imports: [
 

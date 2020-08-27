@@ -17,6 +17,11 @@
     "tabs": {
       "tab1": "Upload",
       "tab2": "Textfield"
+    },
+    "options": {
+      "text-excel": "",
+      "text-csv": "",
+      "text-box": ""
     }
   },
   "upload": {
