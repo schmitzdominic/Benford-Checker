@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import * as XLSX from 'xlsx';
 import {WorkBook} from 'xlsx';
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {ConvertService} from "../../../../services/convert/convert.service";
 import {BenfordService} from "../../../../services/benford/benford.service";
 import {Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
+import {ValidatorService} from "../../../../services/validator/validator.service";
 
 export enum UploadExcelState {
   UPLOAD,
@@ -21,8 +21,6 @@ export enum UploadExcelState {
 export class UploadExcelComponent implements OnInit {
 
   state: UploadExcelState = UploadExcelState.UPLOAD;
-
-  form: FormGroup;
 
   arrayBuffer: any;
   error;
@@ -40,25 +38,26 @@ export class UploadExcelComponent implements OnInit {
 
   constructor(private router: Router,
               private translate: TranslateService,
-              private formBuilder: FormBuilder,
+              private validator: ValidatorService,
               private convertService: ConvertService,
               private benford: BenfordService) {
   }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      csv: ['']
+    this.validator.currentError.subscribe(error => {
+      this.error = error;
     });
   }
 
   onFileChange(event) {
     const file = event.target.files[0];
-    if (this.isValid(file)) {
+    if (this.validator.isValidAppend(file, this.validFileType, this.maxFileSize)) {
       this.readFile(file);
     }
   }
 
   readFile(file) {
+    this.error = undefined;
     let reader = new FileReader();
     reader.readAsArrayBuffer(file);
     reader.onload = (e) => {
@@ -73,9 +72,11 @@ export class UploadExcelComponent implements OnInit {
     try {
       this.columns = Object.keys(this.json[0]);
       this.state = this.getUploadExcelState.CHOOSE_COLUMN;
+      this.error = undefined;
     } catch (error) {
-      // TODO: Message that no data found!
-      console.log("NO DATA FOUND!")
+      this.translate.get('error.no-columns').subscribe(error => {
+        this.error = error;
+      });
     }
   }
 
@@ -85,7 +86,9 @@ export class UploadExcelComponent implements OnInit {
     if (result) {
       this.router.navigate(['/result'], {state: {data: result}});
     } else {
-      // TODO: Message that something is going wrong!
+      this.translate.get('error.unknown').subscribe(error => {
+        this.error = error;
+      });
     }
   }
 
@@ -97,32 +100,7 @@ export class UploadExcelComponent implements OnInit {
     return XLSX.read(arr.join(""), {type: "binary"});
   }
 
-  isValid(file): boolean {
-    this.error = undefined;
-    let noError = true;
-    if (!this.validFileType.includes(file.type)) {
-      this.setError('error.wrong-file');
-      noError = false;
-    }
-    if (file.size > this.maxFileSize) {
-      this.setError('error.to-large');
-      noError = false;
-    }
-    return noError;
-  }
-
-  private setError(path) {
-    this.translate.get(path).subscribe(text => {
-      if (this.error) {
-        this.error += text;
-      } else {
-        this.error = text;
-      }
-    });
-  }
-
   public get getUploadExcelState(): typeof UploadExcelState {
     return UploadExcelState;
   }
-
 }

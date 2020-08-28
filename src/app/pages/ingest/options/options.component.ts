@@ -1,10 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-
-export enum OptionTypes {
-  EXCEL,
-  CSV,
-  TXT
-}
+import {OptionsService} from "../../../services/options/options.service";
+import {OptionTypes} from "../../../models/option-types.model";
 
 @Component({
   selector: 'app-options',
@@ -25,11 +21,14 @@ export class OptionsComponent implements OnInit {
   state = OptionTypes.EXCEL;
   text: string;
 
-  constructor() {
+  constructor(private optionsService: OptionsService) {
   }
 
   ngOnInit(): void {
-    this.changeState(this.state);
+    this.optionsService.changeOption(this.state);
+    this.optionsService.currentOptionState.subscribe(option => {
+      this.changeState(option);
+    });
   }
 
   changeState(optionType: OptionTypes) {
@@ -45,6 +44,7 @@ export class OptionsComponent implements OnInit {
   }
 
   onOptionClick(value) {
-    this.changeState(value);
+    this.optionsService.changeOption(value);
+    // this.changeState(value);
   }
 }

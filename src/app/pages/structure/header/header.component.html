@@ -2,7 +2,7 @@
   <div class="header-background" [ngClass]="{'unfold': !fold, 'fold': fold}">
     <mat-toolbar [ngClass]="{'toolbar-background-fading': !dark, 'toolbar-background-dark': dark}">
       <mat-toolbar-row>
-        <span class="title">{{'app-name' | translate}}</span>
+        <span class="title" [routerLink]="'ingest'">{{'app-name' | translate}}</span>
         <span class="spacer"></span>
         <button mat-button class="toolbar-element unfade">{{ 'header.toolbar.benford' | translate }}</button>
         <button mat-button class="toolbar-element unfade" [matMenuTriggerFor]="menu">

@@ -1,4 +1,4 @@
-$HEADER_PATH: url('../../../assets/images/header.jpg');
+$HEADER_PATH: url('../../../../assets/images/header.jpg');
 $SIDEMENU_TOP: rgba(0, 0, 0, 0.4);
 $SIDEMENU_BOTTOM: rgba(0, 0, 0, 0.0);
 $SIDEMENU_TRANSPARENCY: rgba(0, 0, 0, 0.4);
@@ -27,6 +27,7 @@ $FOLD_HEIGHT: 200px;
 .title {
   font-size: 30px;
   font-weight: bold;
+  background: rgba(0, 0, 0, 0.0);
 }
 
 .spacer {
@@ -71,7 +72,7 @@ $FOLD_HEIGHT: 200px;
 }
 
 .mat-menu-panel {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .mat-menu-item {

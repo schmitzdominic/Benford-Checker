@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ConvertService} from "../../../../services/convert/convert.service";
 import {BenfordService} from "../../../../services/benford/benford.service";
-import {OnExecuteData, ReCaptchaV3Service} from "ng-recaptcha";
 import {Result} from "../../../../models/result.model";
-import {Subscription} from "rxjs";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {RecaptchaService} from "../../../../services/recaptcha/recaptcha.service";
 import {Router} from "@angular/router";
+import {OptionsService} from "../../../../services/options/options.service";
+import {OptionTypes} from "../../../../models/option-types.model";
+import {TranslateService} from "@ngx-translate/core";
+import {ValidatorService} from "../../../../services/validator/validator.service";
 
 @Component({
   selector: 'app-upload-csv',
@@ -15,14 +15,10 @@ import {Router} from "@angular/router";
 })
 export class UploadCsvComponent implements OnInit {
 
-  public readonly executionLog: OnExecuteData[] = [];
-
   result: Result;
+  error;
 
-  recaptchaExecute: Subscription;
-  recaptchaOnExecute: Subscription;
-  recentToken = '';
-  form: FormGroup;
+  // Validators
   maxFileSize = 10485760;
   validFileType = [
     'application/vnd.ms-excel'
@@ -30,37 +26,22 @@ export class UploadCsvComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
-    private recaptchaV3Service: ReCaptchaV3Service,
-    private recaptchaService: RecaptchaService,
+    private translate: TranslateService,
+    private validator: ValidatorService,
+    private optionsService: OptionsService,
     private convert: ConvertService,
     private benford: BenfordService) {
   }
 
   ngOnInit(): void {
-    this.recaptchaOnExecute = this.recaptchaV3Service.onExecute
-      .subscribe((data) => {
-        this.executionLog.push(data);
-        // TODO: Validate through Google Backend!
-
-      });
-    this.recaptchaExecute = this.recaptchaV3Service.execute('enableUploadButton').subscribe(token => this.recentToken = token);
-    this.form = this.formBuilder.group({
-      csv: ['']
+    this.optionsService.changeOption(OptionTypes.CSV);
+    this.validator.currentError.subscribe(error => {
+      this.error = error;
     });
   }
 
-  ngOnDestroy() {
-    if (this.recaptchaExecute) {
-      this.recaptchaExecute.unsubscribe();
-    }
-    if (this.recaptchaOnExecute) {
-      this.recaptchaOnExecute.unsubscribe();
-    }
-  }
-
   readFile(file) {
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.readAsText(file);
     reader.onload = () => {
       const rawList = this.convert.fromTextToList(reader.result);
@@ -68,36 +49,17 @@ export class UploadCsvComponent implements OnInit {
       if (this.result) {
         this.router.navigate(['/result'], {state: {data: this.result}});
       } else {
-        // TODO: Message that something is going wrong!
+        this.translate.get('error.unknown').subscribe(error => {
+          this.error = error;
+        });
       }
     }
   }
 
   onFileChange(event) {
     const file = event.target.files[0];
-    if (this.isValid(file)) {
+    if (this.validator.isValidAppend(file, this.validFileType, this.maxFileSize)) {
       this.readFile(file);
     }
   }
-
-  isValid(file): boolean {
-    if (!file) {
-      // TODO: Message
-      console.log("Uploaded File is null or undefined")
-      return false;
-    }
-    if (!this.validFileType.includes(file.type)) {
-      // TODO: Message
-      console.log("Wrong file type");
-      return false;
-    }
-
-    if (file.size > this.maxFileSize) {
-      // TODO: Message
-      console.log("File to big! Max size is 10Mb");
-      return false;
-    }
-    return true;
-  }
-
 }

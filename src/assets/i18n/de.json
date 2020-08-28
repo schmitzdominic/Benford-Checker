@@ -1,5 +1,6 @@
 {
   "app-name": "Der Benford Checker",
+  "title": "Benford Checker",
   "header": {
     "toolbar": {
       "benford": "Benford"
@@ -24,18 +25,20 @@
       "title": "Optionen",
       "description": "Beschreibung",
       "text-excel": "Hier können Sie eine .xlsx Datei auswählen. Damit eine Exceldatei ausgewertet werden kann, muss zuerst ein Arbeitsblatt und eine Spalte ausgewählt werden. Die Datei darf nicht größer als 10 Mb sein.",
-      "text-csv": "csv",
-      "text-box": "text"
+      "text-csv": "Hier können Sie eine .csv Datei auswählen. Um zwischen Zahlen zu separieren, kann ein Komma oder Leerzeichen verwendet werden. Die Datei darf nicht größer als 10 Mb sein.",
+      "text-box": "Hier können Sie Zahlen direkt in ein Textfeld eingeben. Um zwischen Zahlen zu separieren, kann ein Komma oder Leerzeichen benutzt werden."
     },
     "option-excel": {
       "title": "Excel",
-      "button-add": "Hinzufügen",
+      "button-add": "Auswählen",
       "choose-file": "1. Bitte wählen Sie eine .xlsx Datei",
       "choose-workbook": "2. Bitte wählen Sie ein Arbeitsblatt",
       "choose-column": "3. Bitte wählen Sie eine Spalte"
     },
     "option-csv": {
-      "title": "CSV"
+      "title": "CSV",
+      "button-add": "Auswählen",
+      "choose-file": "Bitte wählen Sie eine .csv Datei"
     },
     "option-text": {
       "title": "Text"
@@ -65,7 +68,9 @@
     }
   },
   "error": {
+    "unknown": "Ups, da ist wohl etwas schief gelaufen.\n\n",
     "to-large": "Die ausgewählte Datei darf höchstens 10 Mb groß sein.\n\n",
-    "wrong-file": "Falscher Dateityp.\n\n"
+    "wrong-file": "Falscher Dateityp.\n\n",
+    "no-columns": "Dieses Arbeitsblatt enthält keine Spalten.\n\n"
   }
 }

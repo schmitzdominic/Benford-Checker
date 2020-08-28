@@ -1,5 +1,6 @@
 {
   "app-name": "The Benford Checker",
+  "title": "Benford Checker",
   "header": {
     "toolbar": {
       "benford": "Benford"
@@ -13,8 +14,8 @@
     }
   },
   "ingest": {
-    "description-title": "ÜBERSETZEN!",
-    "description-text": "ÜBERSETZEN!",
+    "description-title": "How valid is your data?",
+    "description-text": "An initial clue can give you\n the benford checker!",
     "description": "Adding Data",
     "tabs": {
       "tab1": "Upload",
@@ -23,9 +24,9 @@
     "options": {
       "title": "Options",
       "description": "Description",
-      "text-excel": "",
-      "text-csv": "",
-      "text-box": ""
+      "text-excel": "Here you can select an .xlsx file. In order for an Excel file to be evaluated, a worksheet and a column must first be selected. The file must not be larger than 10 Mb.",
+      "text-csv": "Here you can select a .csv file. A comma or space can be used to separate numbers. The file must not be larger than 10 Mb.",
+      "text-box": "Here you can enter numbers directly into a text field. A comma or space can be used to separate numbers."
     },
     "option-excel": {
       "title": "Excel",
@@ -35,7 +36,9 @@
       "choose-column": "3. Please choose a column"
     },
     "option-csv": {
-      "title": "CSV"
+      "title": "CSV",
+      "button-add": "Append",
+      "choose-file": "Please choose a .csv file"
     },
     "option-text": {
       "title": "Text"
@@ -65,7 +68,9 @@
     }
   },
   "error": {
+    "unknown": "Oops, something went wrong.\n\n",
     "to-large": "The selected file cannot be larger than 10 Mb.\n\n",
-    "wrong-file": "Wrong file type.\n\n"
+    "wrong-file": "Wrong file type.\n\n",
+    "no-columns": "No columns were found in this worksheet.\n\n"
   }
 }

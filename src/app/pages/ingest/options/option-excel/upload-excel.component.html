@@ -1,10 +1,11 @@
 <div class="opt-component-block">
+  <!-- Title -->
   <div class="opt-component-title">
     <span>{{ 'ingest.option-excel.title' | translate}}</span>
   </div>
   <!-- Add File -->
   <div *ngIf="state === getUploadExcelState.UPLOAD">
-    <div class="opt-component-list-title  mat-title unfade">
+    <div class="opt-component-step-title mat-title unfade">
       <span>{{ 'ingest.option-excel.choose-file' | translate }}</span>
     </div>
     <button (click)="fileInput.click()" mat-raised-button color="primary" aria-label="upload">
@@ -20,7 +21,7 @@
   <!-- Choose Workbook -->
   <div *ngIf="state === getUploadExcelState.CHOOSE_WORKBOOK">
     <div class="unfade">
-      <div class="opt-component-list-title mat-title">
+      <div class="opt-component-step-title mat-title">
         <span>{{ 'ingest.option-excel.choose-workbook' | translate }}</span>
       </div>
       <mat-selection-list
@@ -36,7 +37,7 @@
   <!-- Choose Column -->
   <div *ngIf="state === getUploadExcelState.CHOOSE_COLUMN">
     <div class="unfade">
-      <div class="opt-component-list-title mat-title">
+      <div class="opt-component-step-title mat-title">
         <span>{{ 'ingest.option-excel.choose-column' | translate }}</span>
       </div>
       <mat-selection-list

@@ -27,10 +27,11 @@ import {UploadCsvComponent} from './pages/ingest/options/option-csv/upload-csv.c
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatListModule} from "@angular/material/list";
 import {ScrollingModule} from "@angular/cdk/scrolling";
-import {HeaderComponent} from './pages/header/header.component';
+import {HeaderComponent} from './pages/structure/header/header.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {OptionsComponent} from './pages/ingest/options/options.component';
-import { FooterComponent } from './pages/footer/footer.component';
+import {FooterComponent} from './pages/structure/footer/footer.component';
+import { PrivacyComponent } from './pages/info/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FooterComponent } from './pages/footer/footer.component';
     UploadCsvComponent,
     HeaderComponent,
     OptionsComponent,
-    FooterComponent
+    FooterComponent,
+    PrivacyComponent
   ],
   imports: [
 

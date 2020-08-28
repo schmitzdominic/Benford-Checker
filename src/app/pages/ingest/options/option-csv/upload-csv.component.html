@@ -1,11 +1,19 @@
-<!--<form [formGroup]="form">
-  <button (click)="fileInput.click()" mat-fab color="primary" aria-label="upload">
+<div class="opt-component-block">
+  <!-- Title -->
+  <div class="opt-component-title">
+    <span>{{ 'ingest.option-csv.title' | translate}}</span>
+  </div>
+  <!-- Add File -->
+  <div class="opt-component-step-title mat-title unfade">
+    <span>{{ 'ingest.option-csv.choose-file' | translate }}</span>
+  </div>
+  <button (click)="fileInput.click()" mat-raised-button color="primary" aria-label="upload">
+    <span style="padding-right: 7px">{{'ingest.option-csv.button-add' | translate }}</span>
     <mat-icon>publish</mat-icon>
     <input #fileInput type="file" accept=".csv" name="csv" (change)="onFileChange($event)" style="display:none;"/>
   </button>
-</form>-->
-<div class="opt-component-block">
-  <div class="opt-component-title">
-    <span>{{ 'ingest.option-csv.title' | translate}}</span>
+  <!-- Error -->
+  <div *ngIf="error">
+    <div class="opt-component-error unfade">{{error}}</div>
   </div>
 </div>

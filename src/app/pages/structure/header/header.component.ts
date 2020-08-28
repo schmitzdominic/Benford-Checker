@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {HeaderService} from "../../services/header/header.service";
+import {HeaderService} from "../../../services/header/header.service";
 
 @Component({
   selector: 'app-header',

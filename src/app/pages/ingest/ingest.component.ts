@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {OptionTypes} from "./options/options.component";
 import {Router} from "@angular/router";
+import {OptionTypes} from "../../models/option-types.model";
 
 @Component({
   selector: 'app-ingest',

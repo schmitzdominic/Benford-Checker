@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OptionsService} from "../../../../services/options/options.service";
+import {OptionTypes} from "../../../../models/option-types.model";
 
 @Component({
   selector: 'app-text-field',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextFieldComponent implements OnInit {
 
-  constructor() { }
+  constructor(private optionsService: OptionsService) {
+  }
 
   ngOnInit(): void {
+    this.optionsService.changeOption(OptionTypes.TXT);
   }
 
 }
