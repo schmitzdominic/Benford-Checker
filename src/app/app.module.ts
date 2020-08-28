@@ -15,7 +15,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
-import {UploadComponent} from './pages/ingest/upload/upload.component';
 import {TextFieldComponent} from './pages/ingest/options/option-text/text-field.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {ResultComponent} from './pages/result/result.component';
@@ -36,7 +35,6 @@ import {OptionsComponent} from './pages/ingest/options/options.component';
   declarations: [
     AppComponent,
     IngestComponent,
-    UploadComponent,
     TextFieldComponent,
     ResultComponent,
     GroupedBarChartComponent,
