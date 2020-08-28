@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ConvertService} from "../../../../services/convert/convert.service";
 import {BenfordService} from "../../../../services/benford/benford.service";
 import {Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 export enum UploadExcelState {
   UPLOAD,
@@ -24,6 +25,7 @@ export class UploadExcelComponent implements OnInit {
   form: FormGroup;
 
   arrayBuffer: any;
+  error;
 
   // Excel
   workBook: WorkBook;
@@ -37,6 +39,7 @@ export class UploadExcelComponent implements OnInit {
   ]
 
   constructor(private router: Router,
+              private translate: TranslateService,
               private formBuilder: FormBuilder,
               private convertService: ConvertService,
               private benford: BenfordService) {
@@ -95,23 +98,27 @@ export class UploadExcelComponent implements OnInit {
   }
 
   isValid(file): boolean {
-    if (!file) {
-      // TODO: Message
-      console.log("Uploaded File is null or undefined")
-      return false;
-    }
+    this.error = undefined;
+    let noError = true;
     if (!this.validFileType.includes(file.type)) {
-      // TODO: Message
-      console.log("Wrong file type");
-      return false;
+      this.setError('error.wrong-file');
+      noError = false;
     }
-
     if (file.size > this.maxFileSize) {
-      // TODO: Message
-      console.log("File to big! Max size is 10Mb");
-      return false;
+      this.setError('error.to-large');
+      noError = false;
     }
-    return true;
+    return noError;
+  }
+
+  private setError(path) {
+    this.translate.get(path).subscribe(text => {
+      if (this.error) {
+        this.error += text;
+      } else {
+        this.error = text;
+      }
+    });
   }
 
   public get getUploadExcelState(): typeof UploadExcelState {

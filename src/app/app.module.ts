@@ -16,21 +16,21 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
 import {UploadComponent} from './pages/ingest/upload/upload.component';
-import {TextFieldComponent} from './pages/ingest/text-field/text-field.component';
+import {TextFieldComponent} from './pages/ingest/options/option-text/text-field.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {ResultComponent} from './pages/result/result.component';
 import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {GroupedBarChartComponent} from './components/grouped-bar-chart/grouped-bar-chart.component';
 import {MatTableModule} from "@angular/material/table";
-import {UploadExcelComponent} from './pages/ingest/upload/upload-excel/upload-excel.component';
-import {UploadCsvComponent} from './pages/ingest/upload/upload-csv/upload-csv.component';
+import {UploadExcelComponent} from './pages/ingest/options/option-excel/upload-excel.component';
+import {UploadCsvComponent} from './pages/ingest/options/option-csv/upload-csv.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatListModule} from "@angular/material/list";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {HeaderComponent} from './pages/header/header.component';
 import {MatMenuModule} from "@angular/material/menu";
-import { OptionsComponent } from './pages/ingest/options/options.component';
+import {OptionsComponent} from './pages/ingest/options/options.component';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
 
 export enum OptionTypes {
   EXCEL,
@@ -15,7 +14,7 @@ export enum OptionTypes {
 export class OptionsComponent implements OnInit {
 
   @Output()
-  chosenOption: EventEmitter<OptionTypes>;
+  chosenOption: EventEmitter<OptionTypes> = new EventEmitter<OptionTypes>();
 
   options = [
     {"type": OptionTypes.EXCEL, "icon": "insert_drive_file", "text": "ingest.options.text-excel", "color": "primary"},
@@ -26,7 +25,7 @@ export class OptionsComponent implements OnInit {
   state = OptionTypes.EXCEL;
   text: string;
 
-  constructor(private translateService: TranslateService) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -35,14 +34,12 @@ export class OptionsComponent implements OnInit {
 
   changeState(optionType: OptionTypes) {
     this.state = optionType;
-    // this.chosenOption.emit(value)
+    this.chosenOption.emit(this.state);
     this.options.forEach(option => {
       option.color = 'primary';
       if (optionType === option.type) {
         option.color = 'accent';
-        this.translateService.get(option.text).subscribe(text => {
-          this.text = text;
-        });
+        this.text = option.text;
       }
     });
   }
@@ -50,9 +47,4 @@ export class OptionsComponent implements OnInit {
   onOptionClick(value) {
     this.changeState(value);
   }
-
-  public get getOptionType(): typeof OptionTypes {
-    return OptionTypes;
-  }
-
 }

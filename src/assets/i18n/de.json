@@ -19,20 +19,30 @@
       "tab2": "Textfeld"
     },
     "options": {
+      "title": "Optionen",
       "description": "Beschreibung",
       "text-excel": "Hier können Sie eine .xlsx Datei auswählen. Damit eine Exceldatei ausgewertet werden kann, muss zuerst ein Arbeitsblatt und eine Spalte ausgewählt werden. Die Datei darf nicht größer als 10 Mb sein.",
       "text-csv": "csv",
       "text-box": "text"
+    },
+    "option-excel": {
+      "title": "Excel",
+      "button-add": "Hinzufügen",
+      "choose-file": "1. Bitte wählen Sie eine .xlsx Datei",
+      "choose-workbook": "2. Bitte wählen Sie ein Arbeitsblatt",
+      "choose-column": "3. Bitte wählen Sie eine Spalte"
+    },
+    "option-csv": {
+      "title": "CSV"
+    },
+    "option-text": {
+      "title": "Text"
     }
   },
   "upload": {
     "toggle": {
       "csv": "Csv",
       "excel": "Excel"
-    },
-    "excel": {
-      "choose-workbook": "Bitte wähle ein Arbeitsblatt",
-      "choose-column": "Bitte wähle eine Spalte"
     }
   },
   "result": {
@@ -57,5 +67,9 @@
       "legend-title": "Legende",
       "y-axis": "Prozent"
     }
+  },
+  "error": {
+    "to-large": "Die ausgewählte Datei darf höchstens 10 Mb groß sein.\n\n",
+    "wrong-file": "Falscher Dateityp.\n\n"
   }
 }

@@ -1,6 +1,11 @@
-<form [formGroup]="form">
+<!--<form [formGroup]="form">
   <button (click)="fileInput.click()" mat-fab color="primary" aria-label="upload">
     <mat-icon>publish</mat-icon>
     <input #fileInput type="file" accept=".csv" name="csv" (change)="onFileChange($event)" style="display:none;"/>
   </button>
-</form>
+</form>-->
+<div class="opt-component-block">
+  <div class="opt-component-title">
+    <span>{{ 'ingest.option-csv.title' | translate}}</span>
+  </div>
+</div>

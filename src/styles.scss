@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 html, body {
   height: 100%;
 }
@@ -7,6 +6,43 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.opt-component-block {
+  position: absolute;
+  left: 30px;
+  top: 50px;
+}
+
+.opt-component-title {
+  text-transform: uppercase;
+  font-size: 70px;
+  font-weight: bold;
+  padding-top: 70px;
+  height: 55px;
+}
+
+.opt-component-error {
+  padding-top: 20px;
+  color: red;
+  white-space: pre-line;
+  font-size: 16px;
+  font-weight: bold;
+  hyphens: auto;
+  text-align: justify;
+  width: 200px;
+}
+
+mat-row:nth-child(even) {
+  background-color: red;
+}
+
+mat-row:nth-child(odd) {
+  background-color: black;
+}
+
+.mat-list-base .mat-list-item:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .unfade {

@@ -1,25 +1,8 @@
 <mat-grid-list cols="2" rowHeight="100px">
-  <mat-grid-tile [colspan]="1" [rowspan]="5">
-    <app-options></app-options>
+  <mat-grid-tile [colspan]="1" [rowspan]="6">
+    <app-options (chosenOption)="onOptionChange($event)"></app-options>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="5">
-    Test 2
-  </mat-grid-tile>
-</mat-grid-list>
-
-
-<mat-grid-list cols="3" rowHeight="100px">
-  <mat-grid-tile [colspan]="3" [rowspan]="1">
-    <span class="mat-display-2">{{ 'ingest.description' | translate }}</span>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="3" [rowspan]="5">
-    <mat-tab-group>
-      <mat-tab label="{{ 'ingest.tabs.tab1' | translate }}">
-        <app-upload></app-upload>
-      </mat-tab>
-      <mat-tab label="{{ 'ingest.tabs.tab2' | translate }}">
-        <app-text-field></app-text-field>
-      </mat-tab>
-    </mat-tab-group>
+  <mat-grid-tile [colspan]="1" [rowspan]="6">
+    <router-outlet></router-outlet>
   </mat-grid-tile>
 </mat-grid-list>

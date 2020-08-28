@@ -1,0 +1,52 @@
+<div class="opt-component-block">
+  <div class="opt-component-title">
+    <span>{{ 'ingest.option-excel.title' | translate}}</span>
+  </div>
+  <!-- Add File -->
+  <div *ngIf="state === getUploadExcelState.UPLOAD">
+    <div class="opt-component-list-title  mat-title unfade">
+      <span>{{ 'ingest.option-excel.choose-file' | translate }}</span>
+    </div>
+    <button (click)="fileInput.click()" mat-raised-button color="primary" aria-label="upload">
+      <span style="padding-right: 7px">{{'ingest.option-excel.button-add' | translate }}</span>
+      <mat-icon>publish</mat-icon>
+      <input #fileInput type="file" accept=".xlsx" name="xlsx" (change)="onFileChange($event)" style="display:none;"/>
+    </button>
+  </div>
+  <!-- Error -->
+  <div *ngIf="error">
+    <div class="opt-component-error unfade">{{error}}</div>
+  </div>
+  <!-- Choose Workbook -->
+  <div *ngIf="state === getUploadExcelState.CHOOSE_WORKBOOK">
+    <div class="unfade">
+      <div class="opt-component-list-title mat-title">
+        <span>{{ 'ingest.option-excel.choose-workbook' | translate }}</span>
+      </div>
+      <mat-selection-list
+        [multiple]="false"
+        (selectionChange)="onWorkBookChoose($event)">
+        <mat-list-option *ngFor="let sheetName of workBook.SheetNames"
+                         [value]="sheetName">
+          {{sheetName}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+  <!-- Choose Column -->
+  <div *ngIf="state === getUploadExcelState.CHOOSE_COLUMN">
+    <div class="unfade">
+      <div class="opt-component-list-title mat-title">
+        <span>{{ 'ingest.option-excel.choose-column' | translate }}</span>
+      </div>
+      <mat-selection-list
+        [multiple]="false"
+        (selectionChange)="onColumnChoose($event)">
+        <mat-list-option *ngFor="let column of columns"
+                         [value]="column">
+          {{column}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+</div>

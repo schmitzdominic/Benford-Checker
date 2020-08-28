@@ -19,19 +19,30 @@
       "tab2": "Textfield"
     },
     "options": {
+      "title": "Options",
+      "description": "Description",
       "text-excel": "",
       "text-csv": "",
       "text-box": ""
+    },
+    "option-excel": {
+      "title": "Excel",
+      "button-add": "Append",
+      "choose-file": "1. Please choose a .xlsx file",
+      "choose-workbook": "2. Please choose a workbook",
+      "choose-column": "3. Please choose a column"
+    },
+    "option-csv": {
+      "title": "CSV"
+    },
+    "option-text": {
+      "title": "Text"
     }
   },
   "upload": {
     "toggle": {
       "csv": "Csv",
       "excel": "Excel"
-    },
-    "excel": {
-      "choose-workbook": "Please choose a workbook",
-      "choose-column": "Please choose a column"
     }
   },
   "result": {
@@ -56,5 +67,9 @@
       "legend-title": "Legend",
       "y-axis": "Percentage"
     }
+  },
+  "error": {
+    "to-large": "The selected file cannot be larger than 10 Mb.\n\n",
+    "wrong-file": "Wrong file type.\n\n"
   }
 }
