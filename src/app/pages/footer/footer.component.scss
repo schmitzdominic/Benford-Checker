@@ -1,0 +1,34 @@
+$FOOTER_PATH: url('../../../assets/images/footer.jpg');
+
+.footer-background {
+  background-image: $FOOTER_PATH;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  color: white;
+}
+
+.mat-button {
+  font-size: 20px;
+}
+
+.toolbar-element {
+  padding-top: 20px;
+  padding-left: 50px;
+  animation-duration: 1s;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

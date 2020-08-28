@@ -1,9 +1,11 @@
 {
-  "app-component": {
-    "title": "Benford Checker",
-    "description": "This is a demo text!"
-  },
+  "app-name": "The Benford Checker",
   "header": {
+    "toolbar": {
+      "benford": "Benford"
+    }
+  },
+  "footer": {
     "toolbar": {
       "contact": "Contact",
       "about": "About us",
@@ -37,12 +39,6 @@
     },
     "option-text": {
       "title": "Text"
-    }
-  },
-  "upload": {
-    "toggle": {
-      "csv": "Csv",
-      "excel": "Excel"
     }
   },
   "result": {

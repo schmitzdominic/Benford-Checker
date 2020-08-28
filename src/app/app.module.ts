@@ -30,6 +30,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
 import {HeaderComponent} from './pages/header/header.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {OptionsComponent} from './pages/ingest/options/options.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {OptionsComponent} from './pages/ingest/options/options.component';
     UploadExcelComponent,
     UploadCsvComponent,
     HeaderComponent,
-    OptionsComponent
+    OptionsComponent,
+    FooterComponent
   ],
   imports: [
 
