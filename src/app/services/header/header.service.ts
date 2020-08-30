@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,11 @@ export class HeaderService {
   constructor() {
   }
 
-  foldHeader(state) {
+  foldHeader(state): void {
     this.fold.next(state);
   }
 
-  darkToolbar(state) {
+  darkToolbar(state): void {
     this.dark.next(state);
   }
 }

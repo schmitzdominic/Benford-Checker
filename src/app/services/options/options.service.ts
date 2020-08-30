@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {OptionTypes} from "../../models/option-types.model";
+import {BehaviorSubject} from 'rxjs';
+import {OptionTypes} from '../../models/option-types.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class OptionsService {
   constructor() {
   }
 
-  changeOption(option: OptionTypes) {
+  changeOption(option: OptionTypes): void {
     this.option.next(option);
   }
 }

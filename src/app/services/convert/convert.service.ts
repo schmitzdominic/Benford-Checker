@@ -10,11 +10,11 @@ export class ConvertService {
   constructor() {
   }
 
-  fromTextToList(rawText) {
-    return (<string>rawText).split(this.splitRegex);
+  fromTextToList(rawText): string[] {
+    return (rawText as string).split(this.splitRegex);
   }
 
-  fromJsonToList(json, filterValue) {
+  fromJsonToList(json, filterValue): string[] {
     const list: string[] = [];
     json.forEach(obj => {
       try {
