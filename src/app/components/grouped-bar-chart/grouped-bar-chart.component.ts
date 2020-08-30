@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Result} from "../../models/result.model";
+import {Result} from '../../models/result.model';
 
 @Component({
   selector: 'app-grouped-bar-chart',
@@ -14,12 +14,12 @@ export class GroupedBarChartComponent implements OnInit {
   view: any[] = [700, 450];
 
   // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-  showYAxisLabel: boolean = true;
+  showXAxis = true;
+  showYAxis = true;
+  gradient = true;
+  showLegend = true;
+  showXAxisLabel = true;
+  showYAxisLabel = true;
   yAxisLabel: string;
 
   colorScheme = {
@@ -35,25 +35,25 @@ export class GroupedBarChartComponent implements OnInit {
     this.fillChart();
   }
 
-  fillChart() {
+  fillChart(): void {
     if (this.result) {
       const multi = [];
       for (let i = 1; i <= 9; i++) {
         multi.push({
-          "name": i + '',
-          "series": [
+          name: i + '',
+          series: [
             {
-              "name": "Benford",
-              "value": this.result.originalPercentage[i]
+              name: 'Benford',
+              value: this.result.originalPercentage[i]
             },
             {
-              "name": "Data",
-              "value": this.result.percentage[i]
+              name: 'Data',
+              value: this.result.percentage[i]
             }
           ]
         });
       }
-      Object.assign(this, {multi})
+      Object.assign(this, {multi});
     }
   }
 }
