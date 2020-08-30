@@ -2,8 +2,8 @@ $HEADER_PATH: url('../../../../assets/images/header.jpg');
 $SIDEMENU_TOP: rgba(0, 0, 0, 0.4);
 $SIDEMENU_BOTTOM: rgba(0, 0, 0, 0.0);
 $SIDEMENU_TRANSPARENCY: rgba(0, 0, 0, 0.4);
-$UNFOLD_HEIGHT: 500px;
-$FOLD_HEIGHT: 200px;
+$UNFOLD_HEIGHT: 350px;
+$FOLD_HEIGHT: 64px;
 
 .header-background {
   background-image: $HEADER_PATH;
@@ -51,13 +51,13 @@ $FOLD_HEIGHT: 200px;
 }
 
 .toolbar-element {
-  padding-left: 50px;
+  padding-left: 60px;
   animation-duration: 1s;
 }
 
 .description-box {
   text-align: center;
-  padding-top: 150px;
+  padding-top: 50px;
 }
 
 .description-title {
