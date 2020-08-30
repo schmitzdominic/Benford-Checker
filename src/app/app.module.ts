@@ -20,7 +20,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {ResultComponent} from './pages/result/result.component';
 import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from "ng-recaptcha";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
-import {GroupedBarChartComponent} from './components/grouped-bar-chart/grouped-bar-chart.component';
+import {GroupedBarChartComponent} from './common/grouped-bar-chart/grouped-bar-chart.component';
 import {MatTableModule} from "@angular/material/table";
 import {UploadExcelComponent} from './pages/ingest/options/option-excel/upload-excel.component';
 import {UploadCsvComponent} from './pages/ingest/options/option-csv/upload-csv.component';
