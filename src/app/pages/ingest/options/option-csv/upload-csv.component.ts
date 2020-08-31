@@ -46,6 +46,10 @@ export class UploadCsvComponent implements OnInit {
     reader.onload = () => {
       const rawList = this.convert.fromTextToList(reader.result);
       this.result = this.benford.calculate(rawList);
+      this.result.originalFile = file;
+      if (rawList && rawList.length > 0) {
+        this.result.column = rawList[0];
+      }
       if (this.result) {
         this.router.navigate(['/result'], {state: {data: this.result}});
       } else {
