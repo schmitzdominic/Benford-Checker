@@ -46,8 +46,15 @@
   },
   "result": {
     "description": "Auswertung",
-    "buttons": {
-      "new": "Neue Daten hochladen"
+    "info": {
+      "list-title": "Original Werte",
+      "list-title-description": "Die ersten original Werte der ausgewählten Liste",
+      "work-book-description": "Ausgewähltes Arbeitsblatt",
+      "column-description": "Ausgewählte Spalte",
+      "button-add-new-data": {
+        "label": "Neue Daten auswählen",
+        "description": "Hier clicken um neue Daten auszuwählen"
+      }
     },
     "tabs": {
       "tab1": "Chart",
