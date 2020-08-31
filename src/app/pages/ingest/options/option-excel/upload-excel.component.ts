@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import * as XLSX from 'xlsx';
 import {WorkBook} from 'xlsx';
-import {ConvertService} from "../../../../services/convert/convert.service";
-import {BenfordService} from "../../../../services/benford/benford.service";
-import {Router} from "@angular/router";
-import {TranslateService} from "@ngx-translate/core";
-import {ValidatorService} from "../../../../services/validator/validator.service";
+import {ConvertService} from '../../../../services/convert/convert.service';
+import {BenfordService} from '../../../../services/benford/benford.service';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {ValidatorService} from '../../../../services/validator/validator.service';
 
 export enum UploadExcelState {
   UPLOAD,
@@ -38,7 +38,7 @@ export class UploadExcelComponent implements OnInit {
   maxFileSize = 10485760;
   validFileType = [
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-  ]
+  ];
 
   constructor(private router: Router,
               private translate: TranslateService,
@@ -53,7 +53,7 @@ export class UploadExcelComponent implements OnInit {
     });
   }
 
-  onFileChange(event) {
+  onFileChange(event): void {
     const file = event.target.files[0];
     if (this.validator.isValidAppend(file, this.validFileType, this.maxFileSize)) {
       this.readFile(file);
@@ -61,17 +61,17 @@ export class UploadExcelComponent implements OnInit {
     }
   }
 
-  readFile(file) {
+  readFile(file): void {
     this.error = undefined;
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.readAsArrayBuffer(file);
     reader.onload = (e) => {
       this.workBook = this.createWorkbook(reader);
       this.state = this.getUploadExcelState.CHOOSE_WORKBOOK;
-    }
+    };
   }
 
-  onWorkBookChoose(event) {
+  onWorkBookChoose(event): void {
     this.chosenWorkBook = event.option.value;
     const workSheet = this.workBook.Sheets[event.option.value];
     this.json = XLSX.utils.sheet_to_json(workSheet, {raw: true});
@@ -86,7 +86,7 @@ export class UploadExcelComponent implements OnInit {
     }
   }
 
-  onColumnChoose(event) {
+  onColumnChoose(event): void {
     this.chosenColumn = event.option.value;
     const rawList = this.convertService.fromJsonToList(this.json, event.option.value);
     const result = this.benford.calculate(rawList);
@@ -105,9 +105,9 @@ export class UploadExcelComponent implements OnInit {
   createWorkbook(reader): WorkBook {
     this.arrayBuffer = reader.result;
     const data = new Uint8Array(this.arrayBuffer);
-    let arr = [];
-    for (let i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
-    return XLSX.read(arr.join(""), {type: "binary"});
+    const arr = [];
+    for (let i = 0; i !== data.length; ++i) { arr[i] = String.fromCharCode(data[i]); }
+    return XLSX.read(arr.join(''), {type: 'binary'});
   }
 
   public get getUploadExcelState(): typeof UploadExcelState {

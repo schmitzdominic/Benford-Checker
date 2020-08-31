@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
-import {HeaderService} from "../../../services/header/header.service";
+import {TranslateService} from '@ngx-translate/core';
+import {HeaderService} from '../../../services/header/header.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import {HeaderService} from "../../../services/header/header.service";
 })
 export class HeaderComponent implements OnInit {
 
-  title = "The Benford Checker"
+  title = 'The Benford Checker';
 
   fold: boolean;
   dark: boolean;
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   availableLanguages = [
     'Deutsch',
     'English'
-  ]
+  ];
 
   chosenLanguage;
 
@@ -31,18 +31,17 @@ export class HeaderComponent implements OnInit {
     this.chosenLanguage = this.translate.getBrowserLang();
   }
 
-  registerSharedOptions() {
+  registerSharedOptions(): void {
     this.headerService.currentFoldState.subscribe(state => {
       this.fold = state;
     });
     this.headerService.currentDarkState.subscribe(state => {
       this.dark = state;
-    })
+    });
   }
 
-  changeLanguage(language) {
+  changeLanguage(language): void {
     this.translate.use(language);
     this.chosenLanguage = language;
   }
-
 }

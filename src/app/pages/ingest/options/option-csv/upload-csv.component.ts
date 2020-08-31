@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ConvertService} from "../../../../services/convert/convert.service";
-import {BenfordService} from "../../../../services/benford/benford.service";
-import {Result} from "../../../../models/result.model";
-import {Router} from "@angular/router";
-import {OptionsService} from "../../../../services/options/options.service";
-import {OptionTypes} from "../../../../models/option-types.model";
-import {TranslateService} from "@ngx-translate/core";
-import {ValidatorService} from "../../../../services/validator/validator.service";
+import {ConvertService} from '../../../../services/convert/convert.service';
+import {BenfordService} from '../../../../services/benford/benford.service';
+import {Result} from '../../../../models/result.model';
+import {Router} from '@angular/router';
+import {OptionsService} from '../../../../services/options/options.service';
+import {OptionTypes} from '../../../../models/option-types.model';
+import {TranslateService} from '@ngx-translate/core';
+import {ValidatorService} from '../../../../services/validator/validator.service';
 
 @Component({
   selector: 'app-upload-csv',
@@ -22,7 +22,7 @@ export class UploadCsvComponent implements OnInit {
   maxFileSize = 10485760;
   validFileType = [
     'application/vnd.ms-excel'
-  ]
+  ];
 
   constructor(
     private router: Router,
@@ -40,7 +40,7 @@ export class UploadCsvComponent implements OnInit {
     });
   }
 
-  readFile(file) {
+  readFile(file): void {
     const reader = new FileReader();
     reader.readAsText(file);
     reader.onload = () => {
@@ -57,10 +57,10 @@ export class UploadCsvComponent implements OnInit {
           this.error = error;
         });
       }
-    }
+    };
   }
 
-  onFileChange(event) {
+  onFileChange(event): void {
     const file = event.target.files[0];
     if (this.validator.isValidAppend(file, this.validFileType, this.maxFileSize)) {
       this.readFile(file);
