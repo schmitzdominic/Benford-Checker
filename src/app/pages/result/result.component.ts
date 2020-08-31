@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Result} from "../../models/result.model";
-import {Router} from "@angular/router";
-import {HeaderService} from "../../services/header/header.service";
+import {Result} from '../../models/result.model';
+import {Router} from '@angular/router';
+import {HeaderService} from '../../services/header/header.service';
 
 export interface PeriodicElement {
   position: number;
@@ -37,7 +37,12 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.fillTable();
   }
 
-  fillTable() {
+  ngOnDestroy(): void {
+    this.headerService.darkToolbar(false);
+    this.headerService.foldHeader(false);
+  }
+
+  fillTable(): void {
     if (this.result) {
       this.tableData = [];
       for (let i = 1; i <= 9; i++) {
@@ -47,7 +52,7 @@ export class ResultComponent implements OnInit, OnDestroy {
           percentage: this.roundTwoDecimals(this.result.percentage[i]) + '%',
           benfordPercentage: this.roundTwoDecimals(this.result.originalPercentage[i]) + '%',
           difference: this.roundTwoDecimals(this.result.originalPercentage[i] - this.result.percentage[i]) + '%'
-        })
+        });
       }
     }
   }
@@ -56,9 +61,16 @@ export class ResultComponent implements OnInit, OnDestroy {
     return Math.round((num + Number.EPSILON) * 100) / 100;
   }
 
-  ngOnDestroy(): void {
-    this.headerService.darkToolbar(false);
-    this.headerService.foldHeader(false);
+  isNumber(value): number {
+    return Number(value);
+  }
+
+  getFirstFiveNumbers(): string[] {
+    const values: string[] = [];
+    for (let index = 0; index < 8; index++) {
+      values.push(this.result.original[index]);
+    }
+    return values;
   }
 
 }

@@ -31,7 +31,9 @@ import {HeaderComponent} from './pages/structure/header/header.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {OptionsComponent} from './pages/ingest/options/options.component';
 import {FooterComponent} from './pages/structure/footer/footer.component';
-import { PrivacyComponent } from './pages/info/privacy/privacy.component';
+import {PrivacyComponent} from './pages/info/privacy/privacy.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -81,6 +83,8 @@ import { PrivacyComponent } from './pages/info/privacy/privacy.component';
     MatListModule,
     ScrollingModule,
     MatMenuModule,
+    MatCardModule,
+    MatTooltipModule,
 
   ],
   providers: [
