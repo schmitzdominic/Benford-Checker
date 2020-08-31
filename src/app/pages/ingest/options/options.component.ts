@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {OptionsService} from "../../../services/options/options.service";
-import {OptionTypes} from "../../../models/option-types.model";
+import {OptionsService} from '../../../services/options/options.service';
+import {OptionTypes} from '../../../models/option-types.model';
 
 @Component({
   selector: 'app-options',
@@ -13,10 +13,10 @@ export class OptionsComponent implements OnInit {
   chosenOption: EventEmitter<OptionTypes> = new EventEmitter<OptionTypes>();
 
   options = [
-    {"type": OptionTypes.EXCEL, "icon": "insert_drive_file", "text": "ingest.options.text-excel", "color": "primary"},
-    {"type": OptionTypes.CSV, "icon": "format_align_left", "text": "ingest.options.text-csv", "color": "primary"},
-    {"type": OptionTypes.TXT, "icon": "text_fields", "text": "ingest.options.text-box", "color": "primary"},
-  ]
+    {type: OptionTypes.EXCEL, icon: 'insert_drive_file', text: 'ingest.options.text-excel', color: 'primary'},
+    {type: OptionTypes.CSV, icon: 'format_align_left', text: 'ingest.options.text-csv', color: 'primary'},
+    {type: OptionTypes.TXT, icon: 'text_fields', text: 'ingest.options.text-box', color: 'primary'},
+  ];
 
   state = OptionTypes.EXCEL;
   text: string;
@@ -31,7 +31,7 @@ export class OptionsComponent implements OnInit {
     });
   }
 
-  changeState(optionType: OptionTypes) {
+  changeState(optionType: OptionTypes): void {
     this.state = optionType;
     this.chosenOption.emit(this.state);
     this.options.forEach(option => {
@@ -43,7 +43,7 @@ export class OptionsComponent implements OnInit {
     });
   }
 
-  onOptionClick(value) {
+  onOptionClick(value): void {
     this.optionsService.changeOption(value);
     // this.changeState(value);
   }

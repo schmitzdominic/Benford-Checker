@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
-import {BehaviorSubject} from "rxjs";
+import {TranslateService} from '@ngx-translate/core';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ValidatorService {
   constructor(private translate: TranslateService) {
   }
 
-  isValidAppend(file, validFileType, maxFileSize: Number): boolean {
+  isValidAppend(file, validFileType, maxFileSize: number): boolean {
     this.error.next(undefined);
     let noError = true;
     if (file) {
@@ -33,7 +33,7 @@ export class ValidatorService {
     return noError;
   }
 
-  private setError(path) {
+  private setError(path): void {
     this.translate.get(path).subscribe(text => {
       if (this.error.value) {
         this.error.next(this.error.value + text);
