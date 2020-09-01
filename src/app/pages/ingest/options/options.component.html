@@ -1,6 +1,5 @@
 <div class="option-block">
   <h5 class="option-title">{{ 'ingest.options.title' | translate }}</h5>
-  <br/>
   <div *ngFor="let option of options" class="option-button">
     <button mat-button mat-fab [color]="option['color']" (click)="onOptionClick(option['type'])">
       <mat-icon>{{option['icon']}}</mat-icon>
