@@ -1,1 +1,10 @@
+$FOOTER_HEIGHT: 200px;
 
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: $FOOTER_HEIGHT;
+}
