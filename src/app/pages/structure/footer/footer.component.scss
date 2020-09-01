@@ -1,11 +1,12 @@
 $FOOTER_PATH: url('../../../../assets/images/footer.jpg');
+$FOOTER_HEIGHT: 200px;
 
 .footer-background {
   background-image: $FOOTER_PATH;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 200px;
+  height: $FOOTER_HEIGHT;
   color: white;
 }
 
@@ -20,7 +21,7 @@ $FOOTER_PATH: url('../../../../assets/images/footer.jpg');
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
