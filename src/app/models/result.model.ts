@@ -1,4 +1,5 @@
 export class Result {
+  scoring: number;
   originalFile: File;
   original: string[] = [];
   workbook?: string;

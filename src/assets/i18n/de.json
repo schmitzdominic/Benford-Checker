@@ -46,6 +46,8 @@
   },
   "result": {
     "description": "Auswertung",
+    "conclusionPositiv": "Ihre Daten scheinen valide zu sein. Ihr Wert:",
+    "conclusionNegativ": "Ihre Daten scheinen nicht korrekt zu sein. Ihr Wert:",
     "info": {
       "list-title": "Original Werte",
       "list-title-description": "Die ersten original Werte der ausgewählten Liste",
