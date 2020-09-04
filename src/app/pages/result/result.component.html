@@ -3,11 +3,8 @@
   <div class="opt-component-title title">
     <span>{{ 'result.description' | translate }}</span>
   </div>
-  <div class="subtitle" *ngIf="valid">
-    <span>{{ 'result.conclusionPositiv' | translate }} {{ result.scoring }}%</span>
-  </div>
-  <div class="subtitle" *ngIf="!valid">
-    <span>{{ 'result.conclusionNegativ' | translate }} {{ result.scoring }}%</span>
+  <div class="subtitle">
+    <span>{{ 'result.conclusion' | translate }} {{ conclusionResult }}%</span>
   </div>
   <mat-grid-list [cols]="3" rowHeight="700px">
     <!-- info -->

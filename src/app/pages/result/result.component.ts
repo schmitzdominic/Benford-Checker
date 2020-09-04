@@ -20,7 +20,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   result: Result;
   diff: number;
-  valid = false;
+  conclusionResult: number;
 
   displayedColumns: string[] = ['position', 'frequency', 'percentage', 'benfordPercentage', 'difference'];
   tableData: PeriodicElement[] = [];
@@ -73,9 +73,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   checkScore(): void {
-    if (this.result.scoring >= 80) {
-      this.valid = true;
-    }
+    this.conclusionResult = 100 - this.result.scoring;
   }
 
   isNumber(value): number {

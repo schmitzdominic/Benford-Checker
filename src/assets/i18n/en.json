@@ -46,8 +46,7 @@
   },
   "result": {
     "description": "Evaluation",
-    "conclusionPositiv": "Your data seems to be valid. Your score:",
-    "conclusionNegativ": "Your data seems to be incorret. Your score:",
+    "conclusion": "Your data has a devitation of",
     "info": {
       "list-title": "Original Values",
       "list-title-description": "The first values from the original list",
