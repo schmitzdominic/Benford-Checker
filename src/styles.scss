@@ -45,6 +45,11 @@ mat-row:nth-child(odd) {
   background: rgba(0, 0, 0, 0.03);
 }
 
+.component-main-div {
+  margin: auto;
+  width: 100%;
+}
+
 .unfade {
   animation-name: unfade;
   animation-duration: 2s;

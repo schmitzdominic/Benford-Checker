@@ -37,6 +37,11 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.fillTable();
   }
 
+  ngOnDestroy(): void {
+    this.headerService.darkToolbar(false);
+    this.headerService.foldHeader(false);
+  }
+
   fillTable(): void {
     if (this.result) {
       this.tableData = [];
@@ -56,9 +61,16 @@ export class ResultComponent implements OnInit, OnDestroy {
     return Math.round((num + Number.EPSILON) * 100) / 100;
   }
 
-  ngOnDestroy(): void {
-    this.headerService.darkToolbar(false);
-    this.headerService.foldHeader(false);
+  isNumber(value): number {
+    return Number(value);
+  }
+
+  getFirstFiveNumbers(): string[] {
+    const values: string[] = [];
+    for (let index = 0; index < 8; index++) {
+      values.push(this.result.original[index]);
+    }
+    return values;
   }
 
 }

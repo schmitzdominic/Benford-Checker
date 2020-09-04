@@ -21,6 +21,7 @@ export enum UploadExcelState {
 export class UploadExcelComponent implements OnInit {
 
   state: UploadExcelState = UploadExcelState.UPLOAD;
+  originalFile: File;
 
   arrayBuffer: any;
   error;
@@ -29,6 +30,9 @@ export class UploadExcelComponent implements OnInit {
   workBook: WorkBook;
   columns: string[];
   json: any;
+
+  chosenWorkBook: string;
+  chosenColumn: string;
 
   // Validators
   maxFileSize = 10485760;
@@ -53,6 +57,7 @@ export class UploadExcelComponent implements OnInit {
     const file = event.target.files[0];
     if (this.validator.isValidAppend(file, this.validFileType, this.maxFileSize)) {
       this.readFile(file);
+      this.originalFile = file;
     }
   }
 
@@ -67,6 +72,7 @@ export class UploadExcelComponent implements OnInit {
   }
 
   onWorkBookChoose(event): void {
+    this.chosenWorkBook = event.option.value;
     const workSheet = this.workBook.Sheets[event.option.value];
     this.json = XLSX.utils.sheet_to_json(workSheet, {raw: true});
     try {
@@ -81,8 +87,12 @@ export class UploadExcelComponent implements OnInit {
   }
 
   onColumnChoose(event): void {
+    this.chosenColumn = event.option.value;
     const rawList = this.convertService.fromJsonToList(this.json, event.option.value);
     const result = this.benford.calculate(rawList);
+    result.originalFile = this.originalFile;
+    result.workbook = this.chosenWorkBook;
+    result.column = this.chosenColumn;
     if (result) {
       this.router.navigate(['/result'], {state: {data: result}});
     } else {

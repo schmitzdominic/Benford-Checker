@@ -1,5 +1,8 @@
 export class Result {
+  originalFile: File;
   original: string[] = [];
+  workbook?: string;
+  column?: string;
   benford: number[] = [];
   data = {
     1: 0,

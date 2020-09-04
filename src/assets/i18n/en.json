@@ -46,8 +46,15 @@
   },
   "result": {
     "description": "Evaluation",
-    "buttons": {
-      "new": "Upload new data"
+    "info": {
+      "list-title": "Original Values",
+      "list-title-description": "The first values from the original list",
+      "work-book-description": "Chosen work book",
+      "column-description": "Chosen column",
+      "button-add-new-data": {
+        "label": "Add new File",
+        "description": "Click here to add a new file"
+      }
     },
     "tabs": {
       "tab1": "Chart",
