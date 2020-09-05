@@ -68,6 +68,15 @@
       "col5": "Abweichung"
     }
   },
+  "contact": {
+    "contactTitle": "Kontakt",
+    "salutation": "Anrede",
+    "firstName": "Vorname",
+    "surname": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefonnummer",
+    "message": "Nachricht"
+  },
   "charts": {
     "grouped-bar-chart": {
       "legend-title": "Legende",

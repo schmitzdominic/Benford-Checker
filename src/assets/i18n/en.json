@@ -68,6 +68,15 @@
       "col5": "Difference"
     }
   },
+  "contact": {
+    "contactTitle": "Contact",
+    "salutation": "Salutation",
+    "firstName": "First name",
+    "surname": "Surname",
+    "email": "E-Mail",
+    "phone": "Phone",
+    "message": "Message"
+  },
   "charts": {
     "grouped-bar-chart": {
       "legend-title": "Legend",
