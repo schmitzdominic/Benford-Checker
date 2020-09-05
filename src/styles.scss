@@ -12,6 +12,11 @@ body {
   text-align: center;
 }
 
+.content {
+  display: inline-block;
+  max-width: 800px;
+}
+
 .opt-component-block {
   position: absolute;
   left: 30px;
