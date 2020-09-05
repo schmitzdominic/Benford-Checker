@@ -1,4 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@media only screen and (max-width: 788px) {
+
+  .opt-component-title {
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: bold;
+    height: 55px;
+  }
+
+  .opt-component-block {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 789px) {
+
+  .opt-component-title {
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: bold;
+    padding-top: 70px;
+    height: 55px;
+  }
+
+  .opt-component-block {
+    position: absolute;
+    left: 30px;
+    top: 25px;
+  }
+}
+
 html, body {
   height: 100%;
 }
@@ -8,18 +38,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.opt-component-block {
-  position: absolute;
-  left: 30px;
-  top: 25px;
-}
-
-.opt-component-title {
-  text-transform: uppercase;
-  font-size: 70px;
-  font-weight: bold;
-  padding-top: 70px;
-  height: 55px;
+.line {
+  height: 1px;
+  border-width: 0;
+  color: lightgray;
+  background-color: lightgray;
 }
 
 .opt-component-error {

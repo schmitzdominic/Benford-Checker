@@ -15,6 +15,9 @@ export class IngestComponent {
     {type: OptionTypes.TXT, path: 'option-text'},
   ];
 
+  breakpoint: number;
+  optionsHeight: number;
+  maxMobileWidth = 788;
   ingestPath = 'ingest/';
   loaded: OptionTypes = OptionTypes.EXCEL;
 
@@ -22,6 +25,7 @@ export class IngestComponent {
   }
 
   onOptionChange(event): void {
+    this.resize(window.innerWidth <= this.maxMobileWidth);
     this.options.forEach(option => {
       if (option.type === event) {
         if (this.loaded !== event) {
@@ -29,5 +33,14 @@ export class IngestComponent {
         }
       }
     });
+  }
+
+  onResize(event): void {
+    this.resize(event.target.innerWidth <= this.maxMobileWidth);
+  }
+
+  resize(isMobile): void {
+    this.breakpoint = isMobile ? 1 : 2;
+    this.optionsHeight = isMobile ? 4 : 10;
   }
 }
