@@ -75,7 +75,9 @@
     "surname": "Nachname",
     "email": "E-Mail",
     "phone": "Telefonnummer",
-    "message": "Nachricht"
+    "message": "Nachricht",
+    "mr": "Herr",
+    "miss": "Frau"
   },
   "charts": {
     "grouped-bar-chart": {

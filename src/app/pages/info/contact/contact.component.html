@@ -4,15 +4,32 @@
     <span>{{ 'contact.contactTitle' | translate }}</span>
   </div>
 
-  <mat-form-field>
-    <span>Testlabel</span><input placeholder="Just a placeholder">
-  </mat-form-field>
-
-  <!--<mat-card class="card">
-  <mat-form-field>
-    <span>Testlabel</span><input placeholder="Just a placeholder">
-  </mat-form-field>
-</mat-card>-->
+  <form class="contact-form">
+    <mat-form-field class="contact-field">
+      <mat-label>{{ 'contact.salutation' | translate }}</mat-label>
+      <input matInput placeholder="{{ 'contact.salutation' | translate }}">
+    </mat-form-field><br>
+    <mat-form-field class="contact-field">
+      <mat-label>{{ 'contact.firstName' | translate }}</mat-label>
+      <textarea matInput placeholder="{{ 'contact.firstName' | translate }}"></textarea>
+    </mat-form-field><br>
+    <mat-form-field class="contact-field">
+      <mat-label>{{ 'contact.surname' | translate }}</mat-label>
+      <textarea matInput placeholder="{{ 'contact.surname' | translate }}"></textarea>
+    </mat-form-field><br>
+    <mat-form-field class="contact-field">
+      <mat-label>{{ 'contact.email' | translate }}</mat-label>
+      <textarea matInput placeholder="{{ 'contact.email' | translate }}"></textarea>
+    </mat-form-field><br>
+    <mat-form-field class="contact-field">
+      <mat-label>{{ 'contact.phone' | translate }}</mat-label>
+      <textarea matInput placeholder="{{ 'contact.phone' | translate }}"></textarea>
+    </mat-form-field><br>
+    <mat-form-field class="contact-field">
+      <mat-label>{{ 'contact.message' | translate }}</mat-label>
+      <textarea matInput placeholder="{{ 'contact.message' | translate }}"></textarea>
+    </mat-form-field>
+  </form>
 
 
 </div>
