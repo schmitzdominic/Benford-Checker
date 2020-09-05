@@ -34,6 +34,7 @@ import {FooterComponent} from './pages/structure/footer/footer.component';
 import {PrivacyComponent} from './pages/info/privacy/privacy.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { ContactComponent } from './pages/info/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     HeaderComponent,
     OptionsComponent,
     FooterComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    ContactComponent
   ],
   imports: [
 
