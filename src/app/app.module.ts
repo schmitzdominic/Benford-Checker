@@ -35,6 +35,8 @@ import {PrivacyComponent} from './pages/info/privacy/privacy.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { FileInfoCardComponent } from './pages/result/file-info-card/file-info-card.component';
+import { BenfordTableComponent } from './pages/result/benford-table/benford-table.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     HeaderComponent,
     OptionsComponent,
     FooterComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    FileInfoCardComponent,
+    BenfordTableComponent
   ],
   imports: [
 

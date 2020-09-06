@@ -1,0 +1,43 @@
+<div class="info">
+  <!-- card -->
+  <mat-card class="card">
+    <mat-card-header>
+      <!-- card title -->
+      <mat-card-title class="ellipsify">{{result.originalFile.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- work book -->
+      <div *ngIf="result.workbook" matTooltip="{{ 'result.info.work-book-description' | translate}}">
+        <mat-icon>insert_drive_file</mat-icon>
+        <span class="aligned-with-icon ellipsify">{{result.workbook}}</span>
+      </div>
+      <!-- column -->
+      <div *ngIf="result.column && !isNumber(result.column)"
+           matTooltip="{{ 'result.info.column-description' | translate}}">
+        <mat-icon>view_column</mat-icon>
+        <span class="aligned-with-icon ellipsify">{{result.column}}</span>
+      </div>
+      <div>
+        <!-- list title -->
+        <div matTooltip="{{ 'result.info.list-title-description' | translate}}">
+          <mat-icon>format_list_numbered_rtl
+          </mat-icon>
+          <span class="aligned-with-icon"
+                style="font-weight: bold;">{{'result.info.list-title' | translate}}</span>
+        </div>
+        <!-- list -->
+        <div *ngFor="let value of getFirstNumbers(firstNumbersCount)" class="original-number ellipsify"
+             style="font-weight: bold;">
+          {{value}}
+        </div>
+        <div class="original-number">&hellip;</div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="center">
+      <!-- add new file button -->
+      <button mat-raised-button color="primary"
+              matTooltip="{{ 'result.info.button-add-new-data.description' | translate}}"
+              routerLink="">{{ 'result.info.button-add-new-data.label' | translate }}</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

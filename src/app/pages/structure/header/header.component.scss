@@ -15,7 +15,7 @@ $FOLD_HEIGHT_DESKTOP: 64px;
   }
 
   .fold {
-    height: $UNFOLD_HEIGHT_MOBILE;
+    height: $FOLD_HEIGHT_DESKTOP;
     animation-name: fold;
     animation-duration: 1s;
   }
@@ -74,7 +74,7 @@ $FOLD_HEIGHT_DESKTOP: 64px;
   }
 
   .fold {
-    height: $UNFOLD_HEIGHT_MOBILE;
+    height: $FOLD_HEIGHT_DESKTOP;
     animation-name: fold;
     animation-duration: 1s;
   }

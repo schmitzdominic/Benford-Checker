@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {OptionTypes} from '../../models/option-types.model';
 
@@ -7,7 +7,7 @@ import {OptionTypes} from '../../models/option-types.model';
   templateUrl: './ingest.component.html',
   styleUrls: ['./ingest.component.scss']
 })
-export class IngestComponent {
+export class IngestComponent implements OnInit {
 
   options = [
     {type: OptionTypes.EXCEL, path: 'option-excel'},
@@ -24,8 +24,11 @@ export class IngestComponent {
   constructor(private router: Router) {
   }
 
-  onOptionChange(event): void {
+  ngOnInit(): void {
     this.resize(window.innerWidth <= this.maxMobileWidth);
+  }
+
+  onOptionChange(event): void {
     this.options.forEach(option => {
       if (option.type === event) {
         if (this.loaded !== event) {

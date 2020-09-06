@@ -1,4 +1,4 @@
-<div class="chart">
+<div class="chart" (window:resize)="onResize($event)">
   <ngx-charts-bar-vertical-2d
     [view]="view"
     [scheme]="colorScheme"

@@ -1,4 +1,4 @@
-<mat-grid-list cols="{{breakpoint}}" rowHeight="37px" (window:resize)="onResize($event)">
+<mat-grid-list [cols]="breakpoint" rowHeight="37px" (window:resize)="onResize($event)">
   <mat-grid-tile [colspan]="1" [rowspan]="optionsHeight">
     <app-options (chosenOption)="onOptionChange($event)"></app-options>
   </mat-grid-tile>
