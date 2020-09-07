@@ -32,7 +32,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.headerService.foldHeader(true);
     this.result = history.state.data;
     if (!this.result) {
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     }
     this.fillTable();
   }
@@ -68,7 +68,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   getFirstFiveNumbers(): string[] {
     const values: string[] = [];
     for (let index = 0; index < 8; index++) {
-      values.push(this.result.original[index]);
+      values.push(this.result?.original[index]);
     }
     return values;
   }

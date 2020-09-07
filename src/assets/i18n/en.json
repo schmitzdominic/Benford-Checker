@@ -10,7 +10,7 @@
     "toolbar": {
       "contact": "Contact",
       "about": "About us",
-      "privacy": "Privacy"
+      "privacy": "Imprint"
     }
   },
   "ingest": {
@@ -73,6 +73,14 @@
       "legend-title": "Legend",
       "y-axis": "Percentage"
     }
+  },
+  "info": {
+    "privacy": {
+      "title": "Imprint"
+    }
+  },
+  "md": {
+    "privacy": "/assets/info/privacy/en_privacy.md"
   },
   "error": {
     "unknown": "Oops, something went wrong.\n\n",

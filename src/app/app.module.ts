@@ -1,8 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, SecurityContext} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {MarkdownModule} from 'ngx-markdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -32,8 +33,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {OptionsComponent} from './pages/ingest/options/options.component';
 import {FooterComponent} from './pages/structure/footer/footer.component';
 import {PrivacyComponent} from './pages/info/privacy/privacy.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,9 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MarkdownModule.forRoot({
+      sanitize: SecurityContext.NONE
+    }),
 
     // translation
     HttpClientModule,

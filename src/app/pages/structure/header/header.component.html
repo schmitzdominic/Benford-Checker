@@ -4,7 +4,8 @@
       <mat-toolbar-row>
         <span class="title" [routerLink]="'ingest'">{{'app-name' | translate}}</span>
         <span class="spacer"></span>
-        <button mat-button class="toolbar-element unfade">{{ 'header.toolbar.benford' | translate }}</button>
+        <!--<button mat-button // TODO: Uncomment if #6 is finished
+                class="toolbar-element unfade">{{ 'header.toolbar.benford' | translate }}</button>-->
         <button mat-button class="toolbar-element unfade" [matMenuTriggerFor]="menu">
           <mat-icon>language</mat-icon>
           {{chosenLanguage.toUpperCase()}}

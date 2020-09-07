@@ -11,19 +11,19 @@
         <mat-card class="card">
           <mat-card-header>
             <!-- card title -->
-            <mat-card-title class="ellipsify">{{result.originalFile.name}}</mat-card-title>
+            <mat-card-title class="ellipsify">{{result?.originalFile.name}}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <!-- work book -->
-            <div *ngIf="result.workbook" matTooltip="{{ 'result.info.work-book-description' | translate}}">
+            <div *ngIf="result?.workbook" matTooltip="{{ 'result.info.work-book-description' | translate}}">
               <mat-icon>insert_drive_file</mat-icon>
-              <span class="aligned-with-icon ellipsify">{{result.workbook}}</span>
+              <span class="aligned-with-icon ellipsify">{{result?.workbook}}</span>
             </div>
             <!-- column -->
-            <div *ngIf="result.column && !isNumber(result.column)"
+            <div *ngIf="result?.column && !isNumber(result?.column)"
                  matTooltip="{{ 'result.info.column-description' | translate}}">
               <mat-icon>view_column</mat-icon>
-              <span class="aligned-with-icon ellipsify">{{result.column}}</span>
+              <span class="aligned-with-icon ellipsify">{{result?.column}}</span>
             </div>
             <div>
               <!-- list title -->
