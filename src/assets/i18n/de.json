@@ -46,6 +46,7 @@
   },
   "result": {
     "description": "Auswertung",
+    "conclusion": "Ihre Daten haben eine Abweichung von",
     "info": {
       "list-title": "Original Werte",
       "list-title-description": "Die ersten original Werte der ausgewählten Liste",

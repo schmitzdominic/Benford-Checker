@@ -19,6 +19,8 @@ export interface PeriodicElement {
 export class ResultComponent implements OnInit, OnDestroy {
 
   result: Result;
+  diff: number;
+  conclusionResult: number;
 
   displayedColumns: string[] = ['position', 'frequency', 'percentage', 'benfordPercentage', 'difference'];
   tableData: PeriodicElement[] = [];
@@ -31,10 +33,13 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.headerService.darkToolbar(true);
     this.headerService.foldHeader(true);
     this.result = history.state.data;
+    this.result.scoring = 100;
     if (!this.result) {
       this.router.navigate(['']);
     }
     this.fillTable();
+    this.checkScore();
+
   }
 
   ngOnDestroy(): void {
@@ -46,12 +51,14 @@ export class ResultComponent implements OnInit, OnDestroy {
     if (this.result) {
       this.tableData = [];
       for (let i = 1; i <= 9; i++) {
+        this.diff = this.roundTwoDecimals(this.result.originalPercentage[i] - this.result.percentage[i]);
+        this.updateScoring(this.diff);
         this.tableData.push({
           position: i,
           frequency: this.result.data[i],
           percentage: this.roundTwoDecimals(this.result.percentage[i]) + '%',
           benfordPercentage: this.roundTwoDecimals(this.result.originalPercentage[i]) + '%',
-          difference: this.roundTwoDecimals(this.result.originalPercentage[i] - this.result.percentage[i]) + '%'
+          difference: this.diff + '%',
         });
       }
     }
@@ -59,6 +66,14 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   roundTwoDecimals(num): number {
     return Math.round((num + Number.EPSILON) * 100) / 100;
+  }
+
+  updateScoring(difference: number): void {
+    this.result.scoring = this.roundTwoDecimals(difference <= 0 ? this.result.scoring + difference : this.result.scoring - difference);
+  }
+
+  checkScore(): void {
+    this.conclusionResult = 100 - this.result.scoring;
   }
 
   isNumber(value): number {

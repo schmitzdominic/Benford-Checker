@@ -46,6 +46,7 @@
   },
   "result": {
     "description": "Evaluation",
+    "conclusion": "Your data has a devitation of",
     "info": {
       "list-title": "Original Values",
       "list-title-description": "The first values from the original list",

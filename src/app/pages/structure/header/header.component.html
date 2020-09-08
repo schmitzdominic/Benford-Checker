@@ -20,8 +20,8 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <div class="description-box" [ngClass]="{'unfade': !fold, 'fade': fold}">
-      <span class="description-title mat-display-2">{{'ingest.description-title' | translate }}</span><br/>
-      <span class="description-text mat-display-1">{{'ingest.description-text' | translate }}</span>
+      <span class="description-title mat-display-2" *ngIf="!fold">{{'ingest.description-title' | translate }}</span><br/>
+      <span class="description-text mat-display-1" *ngIf="!fold">{{'ingest.description-text' | translate }}</span>
     </div>
   </div>
 </section>

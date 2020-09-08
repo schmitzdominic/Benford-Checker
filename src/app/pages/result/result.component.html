@@ -3,6 +3,9 @@
   <div class="opt-component-title title">
     <span>{{ 'result.description' | translate }}</span>
   </div>
+  <div class="subtitle">
+    <span>{{ 'result.conclusion' | translate }} {{ conclusionResult }}%</span>
+  </div>
   <mat-grid-list [cols]="3" rowHeight="700px">
     <!-- info -->
     <mat-grid-tile [colspan]="1">
