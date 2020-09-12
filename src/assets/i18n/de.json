@@ -17,7 +17,7 @@
     "toolbar": {
       "contact": "Kontakt",
       "about": "Über uns",
-      "privacy": "Datenschutz"
+      "privacy": "Impressum"
     }
   },
   "ingest": {
@@ -80,6 +80,14 @@
       "legend-title": "Legende",
       "y-axis": "Prozent"
     }
+  },
+  "info": {
+    "privacy": {
+      "title": "Impressum"
+    }
+  },
+  "md": {
+    "privacy": "/assets/info/privacy/de_privacy.md"
   },
   "error": {
     "unknown": "Ups, da ist wohl etwas schief gelaufen.\n\n",

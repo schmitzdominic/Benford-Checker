@@ -27,7 +27,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.headerService.foldHeader(true);
     this.result = history.state.data;
     if (!this.result) {
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     }
   }
 

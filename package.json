@@ -25,6 +25,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "@swimlane/ngx-charts": "^14.0.0",
     "ng-recaptcha": "^5.0.0",
+    "ngx-markdown": "^10.1.1",
     "rxjs": "^6.5.5",
     "tslib": "^2.0.0",
     "xlsx": "^0.16.6",
