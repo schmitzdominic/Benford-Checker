@@ -32,12 +32,12 @@ import {HeaderComponent} from './pages/structure/header/header.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {OptionsComponent} from './pages/ingest/options/options.component';
 import {FooterComponent} from './pages/structure/footer/footer.component';
-import {PrivacyComponent} from './pages/info/privacy/privacy.component';
+import {ImprintComponent} from './pages/info/imprint/imprint.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { FileInfoCardComponent } from './pages/result/file-info-card/file-info-card.component';
-import { BenfordTableComponent } from './pages/result/benford-table/benford-table.component';
+import {FileInfoCardComponent} from './pages/result/file-info-card/file-info-card.component';
+import {BenfordTableComponent} from './pages/result/benford-table/benford-table.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { BenfordTableComponent } from './pages/result/benford-table/benford-tabl
     HeaderComponent,
     OptionsComponent,
     FooterComponent,
-    PrivacyComponent,
+    ImprintComponent,
     FileInfoCardComponent,
     BenfordTableComponent
   ],
@@ -62,7 +62,7 @@ import { BenfordTableComponent } from './pages/result/benford-table/benford-tabl
     AppRoutingModule,
     BrowserAnimationsModule,
     MarkdownModule.forRoot({
-      sanitize: SecurityContext.NONE
+      sanitize: SecurityContext.HTML
     }),
 
     // translation

@@ -9,7 +9,8 @@
       <mat-icon mat-list-icon>home</mat-icon>
       <div mat-line>{{'side-menu.option-home' | translate}}</div>
     </mat-list-option>
-    <mat-list-option (click)="drawer.toggle()" routerLink="">
+    <!-- TODO: Activate if content is given! -->
+    <!--<mat-list-option (click)="drawer.toggle()" routerLink="">
       <mat-icon mat-list-icon>help</mat-icon>
       <div mat-line>{{'side-menu.option-benford' | translate}}</div>
     </mat-list-option>
@@ -20,7 +21,7 @@
     <mat-list-option (click)="drawer.toggle()" routerLink="">
       <mat-icon mat-list-icon>contact_mail</mat-icon>
       <div mat-line>{{'side-menu.option-contact' | translate}}</div>
-    </mat-list-option>
+    </mat-list-option>-->
     <mat-list-option (click)="drawer.toggle()" routerLink="privacy">
       <mat-icon mat-list-icon>book</mat-icon>
       <div mat-line>{{'side-menu.option-imprint' | translate}}</div>
@@ -44,7 +45,8 @@
             <mat-icon>dehaze</mat-icon>
           </button>
         </div>
-        <span class="title" [routerLink]="'ingest'">{{'app-name' | translate}}</span>
+        <button mat-button class="toolbar-element unfade" style="font-size: 25px;"
+                routerLink="''">{{'app-name' | translate}}</button>
         <span class="spacer"></span>
         <div class="desktop-menu">
           <!--TODO: Uncomment if #6 is finished-->
@@ -63,7 +65,7 @@
         </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
-    <div class="description-box" [ngClass]="{'unfade': !fold, 'fade': fold}">
+    <div class="description-box" *ngIf="!fold" [ngClass]="{'unfade': !fold, 'fade': fold}">
       <span class="description-title">{{'ingest.description-title' | translate }}</span><br/>
       <span class="description-text">{{'ingest.description-text' | translate }}</span>
     </div>

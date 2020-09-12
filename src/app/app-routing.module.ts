@@ -5,7 +5,7 @@ import {ResultComponent} from './pages/result/result.component';
 import {UploadExcelComponent} from './pages/ingest/options/option-excel/upload-excel.component';
 import {TextFieldComponent} from './pages/ingest/options/option-text/text-field.component';
 import {UploadCsvComponent} from './pages/ingest/options/option-csv/upload-csv.component';
-import {PrivacyComponent} from './pages/info/privacy/privacy.component';
+import {ImprintComponent} from './pages/info/imprint/imprint.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'ingest', pathMatch: 'full'},
@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {path: 'result', component: ResultComponent},
 
-  {path: 'privacy', component: PrivacyComponent},
+  {path: 'privacy', component: ImprintComponent},
 
   {path: '**', redirectTo: 'ingest', pathMatch: 'full'},
 ];
