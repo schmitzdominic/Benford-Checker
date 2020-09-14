@@ -1,18 +1,45 @@
+@media only screen and (max-width: 788px) {
+
+  .option-block {
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  .option-title {
+    display: none;
+  }
+
+  .option-text {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 789px) {
+
+  .option-block {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+  }
+
+  .option-title {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 15px;
+  }
+
+  .option-text {
+    padding-top: 30px;
+    white-space: pre-line;
+    text-align: justify;
+    width: 195px;
+    height: 300px;
+  }
+}
+
 .example-form-field {
   width: 200px;
-}
-
-.option-block {
-  position: absolute;
-  right: 20px;
-  top: 25px;
-}
-
-.option-title {
-  text-transform: uppercase;
-  font-size: 25px;
-  font-weight: bold;
-  padding-bottom: 15px;
 }
 
 .option-button {
@@ -22,12 +49,4 @@
 
 .option-description-title {
   padding-bottom: 10px;
-}
-
-.option-text {
-  padding-top: 30px;
-  white-space: pre-line;
-  text-align: justify;
-  width: 195px;
-  height: 300px;
 }

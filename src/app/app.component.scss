@@ -1,10 +1,18 @@
 $FOOTER_HEIGHT: 200px;
 
+@media only screen and (max-width: 788px) {
+  .content-wrap {
+    padding-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 789px) {
+  .content-wrap {
+    padding-bottom: $FOOTER_HEIGHT;
+  }
+}
+
 .page-container {
   position: relative;
   min-height: 100vh;
-}
-
-.content-wrap {
-  padding-bottom: $FOOTER_HEIGHT;
 }

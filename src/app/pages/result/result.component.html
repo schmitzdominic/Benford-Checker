@@ -3,101 +3,37 @@
   <div class="opt-component-title title">
     <span>{{ 'result.description' | translate }}</span>
   </div>
-  <mat-grid-list [cols]="3" rowHeight="700px">
+  <mat-grid-list [cols]="breakpoint" rowHeight="70px" (window:resize)="onResize($event)">
     <!-- info -->
-    <mat-grid-tile [colspan]="1">
-      <div class="info">
-        <!-- card -->
-        <mat-card class="card">
-          <mat-card-header>
-            <!-- card title -->
-            <mat-card-title class="ellipsify">{{result?.originalFile.name}}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <!-- work book -->
-            <div *ngIf="result?.workbook" matTooltip="{{ 'result.info.work-book-description' | translate}}">
-              <mat-icon>insert_drive_file</mat-icon>
-              <span class="aligned-with-icon ellipsify">{{result?.workbook}}</span>
-            </div>
-            <!-- column -->
-            <div *ngIf="result?.column && !isNumber(result?.column)"
-                 matTooltip="{{ 'result.info.column-description' | translate}}">
-              <mat-icon>view_column</mat-icon>
-              <span class="aligned-with-icon ellipsify">{{result?.column}}</span>
-            </div>
-            <div>
-              <!-- list title -->
-              <div matTooltip="{{ 'result.info.list-title-description' | translate}}">
-                <mat-icon>format_list_numbered_rtl
-                </mat-icon>
-                <span class="aligned-with-icon"
-                      style="font-weight: bold;">{{'result.info.list-title' | translate}}</span>
-              </div>
-              <!-- list -->
-              <div *ngFor="let value of getFirstFiveNumbers()" class="original-number ellipsify"
-                   style="font-weight: bold;">
-                {{value}}
-              </div>
-              <div class="original-number">&hellip;</div>
-            </div>
-          </mat-card-content>
-          <mat-card-actions align="center">
-            <!-- add new file button -->
-            <button mat-raised-button color="primary"
-                    matTooltip="{{ 'result.info.button-add-new-data.description' | translate}}"
-                    routerLink="">{{ 'result.info.button-add-new-data.label' | translate }}</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+    <mat-grid-tile *ngIf="!isMobile" [colspan]="1" [rowspan]="height">
+      <app-file-info-card
+        [result]="result"
+      ></app-file-info-card>
     </mat-grid-tile>
     <!-- data -->
-    <mat-grid-tile [colspan]="2">
+    <mat-grid-tile [colspan]="2" [rowspan]="height">
       <div class="figures">
         <mat-tab-group>
           <mat-tab label="{{ 'result.tabs.tab1' | translate }}">
+            <!-- benford chart -->
             <app-grouped-bar-chart
               [result]="result"
             ></app-grouped-bar-chart>
           </mat-tab>
           <mat-tab label="{{ 'result.tabs.tab2' | translate }}">
-            <table mat-table [dataSource]="tableData" class="mat-elevation-z8">
-
-              <!-- Number -->
-              <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef>{{ 'result.table.col1' | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-              </ng-container>
-
-              <!-- Frequency -->
-              <ng-container matColumnDef="frequency">
-                <th mat-header-cell *matHeaderCellDef>{{ 'result.table.col2' | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{element.frequency}} </td>
-              </ng-container>
-
-              <!-- Percentage -->
-              <ng-container matColumnDef="percentage">
-                <th mat-header-cell *matHeaderCellDef>{{ 'result.table.col3' | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{element.percentage}} </td>
-              </ng-container>
-
-              <!-- Benford Percentage -->
-              <ng-container matColumnDef="benfordPercentage">
-                <th mat-header-cell *matHeaderCellDef>{{ 'result.table.col4' | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{element.benfordPercentage}} </td>
-              </ng-container>
-
-              <!-- Difference -->
-              <ng-container matColumnDef="difference">
-                <th mat-header-cell *matHeaderCellDef>{{ 'result.table.col5' | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{element.difference}} </td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
+            <!-- benford table -->
+            <app-benford-table
+              [result]="result"
+            ></app-benford-table>
           </mat-tab>
         </mat-tab-group>
       </div>
+    </mat-grid-tile>
+    <!-- info -->
+    <mat-grid-tile *ngIf="isMobile" [colspan]="2" [rowspan]="height-2">
+      <app-file-info-card
+        [result]="result"
+      ></app-file-info-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

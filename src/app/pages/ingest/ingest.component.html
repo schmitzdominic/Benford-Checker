@@ -1,8 +1,8 @@
-<mat-grid-list cols="2" rowHeight="370px">
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
+<mat-grid-list [cols]="breakpoint" rowHeight="37px" (window:resize)="onResize($event)">
+  <mat-grid-tile [colspan]="1" [rowspan]="optionsHeight">
     <app-options (chosenOption)="onOptionChange($event)"></app-options>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
+  <mat-grid-tile [colspan]="1" [rowspan]="10">
     <router-outlet></router-outlet>
   </mat-grid-tile>
 </mat-grid-list>

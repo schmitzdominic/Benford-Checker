@@ -11,7 +11,10 @@ export class GroupedBarChartComponent implements OnInit {
   @Input()
   result: Result;
 
-  view: any[] = [700, 450];
+  maxMobileWidth = 788;
+  width = 700;
+
+  view: any[] = [this.width, 450];
 
   // options
   showXAxis = true;
@@ -32,6 +35,7 @@ export class GroupedBarChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.resize(window.innerWidth <= this.maxMobileWidth, window.innerWidth);
     this.fillChart();
   }
 
@@ -54,6 +58,16 @@ export class GroupedBarChartComponent implements OnInit {
         });
       }
       Object.assign(this, {multi});
+    }
+  }
+
+  onResize(event): void {
+    this.resize(event.target.innerWidth <= this.maxMobileWidth, event.target.innerWidth);
+  }
+
+  resize(isMobile, width): void {
+    if (isMobile) {
+      this.view = [width, 450];
     }
   }
 }

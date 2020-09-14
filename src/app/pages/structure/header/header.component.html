@@ -1,11 +1,57 @@
+<mat-drawer #drawer mode="side">
+  <div style="padding-top: 10px; padding-left: 10px;">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-selection-list [multiple]="false">
+    <mat-list-option (click)="drawer.toggle()" routerLink="">
+      <mat-icon mat-list-icon>home</mat-icon>
+      <div mat-line>{{'side-menu.option-home' | translate}}</div>
+    </mat-list-option>
+    <!-- TODO: Activate if content is given! -->
+    <!--<mat-list-option (click)="drawer.toggle()" routerLink="">
+      <mat-icon mat-list-icon>help</mat-icon>
+      <div mat-line>{{'side-menu.option-benford' | translate}}</div>
+    </mat-list-option>
+    <mat-list-option (click)="drawer.toggle()" routerLink="">
+      <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+      <div mat-line>{{'side-menu.option-about-us' | translate}}</div>
+    </mat-list-option>
+    <mat-list-option (click)="drawer.toggle()" routerLink="">
+      <mat-icon mat-list-icon>contact_mail</mat-icon>
+      <div mat-line>{{'side-menu.option-contact' | translate}}</div>
+    </mat-list-option>-->
+    <mat-list-option (click)="drawer.toggle()" routerLink="privacy">
+      <mat-icon mat-list-icon>book</mat-icon>
+      <div mat-line>{{'side-menu.option-imprint' | translate}}</div>
+    </mat-list-option>
+  </mat-selection-list>
+  <div class="menu-footer">
+    <hr class="line">
+    <div style="padding-left: 20px">
+      <mat-icon style="width: 12px;" class="menu-footer-text">copyright</mat-icon>
+      <span class="menu-footer-text">{{year}}/</span>
+      <span class="menu-footer-text">{{'app-name' | translate}}</span>
+    </div>
+  </div>
+</mat-drawer>
 <section class="mat-typography">
   <div class="header-background" [ngClass]="{'unfold': !fold, 'fold': fold}">
     <mat-toolbar [ngClass]="{'toolbar-background-fading': !dark, 'toolbar-background-dark': dark}">
       <mat-toolbar-row>
-        <span class="title" [routerLink]="'ingest'">{{'app-name' | translate}}</span>
+        <div class="mobile-menu">
+          <button mat-icon-button class="toolbar-element unfade" (click)="drawer.toggle()">
+            <mat-icon>dehaze</mat-icon>
+          </button>
+        </div>
+        <button mat-button class="toolbar-element unfade" style="font-size: 25px;"
+                routerLink="''">{{'app-name' | translate}}</button>
         <span class="spacer"></span>
-        <!--<button mat-button // TODO: Uncomment if #6 is finished
-                class="toolbar-element unfade">{{ 'header.toolbar.benford' | translate }}</button>-->
+        <div class="desktop-menu">
+          <!--TODO: Uncomment if #6 is finished-->
+          <!--<button mat-button class="toolbar-element unfade">{{ 'header.toolbar.benford' | translate }}</button>-->
+        </div>
         <button mat-button class="toolbar-element unfade" [matMenuTriggerFor]="menu">
           <mat-icon>language</mat-icon>
           {{chosenLanguage.toUpperCase()}}
@@ -19,9 +65,9 @@
         </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
-    <div class="description-box" [ngClass]="{'unfade': !fold, 'fade': fold}">
-      <span class="description-title mat-display-2">{{'ingest.description-title' | translate }}</span><br/>
-      <span class="description-text mat-display-1">{{'ingest.description-text' | translate }}</span>
+    <div class="description-box" *ngIf="!fold" [ngClass]="{'unfade': !fold, 'fade': fold}">
+      <span class="description-title">{{'ingest.description-title' | translate }}</span><br/>
+      <span class="description-text">{{'ingest.description-text' | translate }}</span>
     </div>
   </div>
 </section>

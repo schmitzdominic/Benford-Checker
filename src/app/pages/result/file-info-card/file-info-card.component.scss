@@ -1,0 +1,45 @@
+@media only screen and (max-width: 788px) {
+  .card {
+    text-align: left;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .ellipsify {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 250px;
+    text-overflow: ellipsis;
+  }
+}
+
+@media only screen and (min-width: 789px) {
+  .card {
+    width: 200px;
+  }
+
+  .info {
+    position: absolute;
+    top: 60px;
+    right: 5px;
+  }
+
+  .ellipsify {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 150px;
+    text-overflow: ellipsis;
+  }
+}
+
+.aligned-with-icon {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.original-number {
+  padding-left: 35px;
+}

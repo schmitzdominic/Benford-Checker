@@ -6,6 +6,13 @@
       "benford": "Benford"
     }
   },
+  "side-menu": {
+    "option-home": "Home",
+    "option-benford": "Benford",
+    "option-about-us": "Über uns",
+    "option-contact": "Kontakt",
+    "option-imprint": "Impressum"
+  },
   "footer": {
     "toolbar": {
       "contact": "Kontakt",

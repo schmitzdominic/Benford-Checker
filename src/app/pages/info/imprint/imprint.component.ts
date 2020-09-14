@@ -3,10 +3,10 @@ import {HeaderService} from '../../../services/header/header.service';
 
 @Component({
   selector: 'app-privacy',
-  templateUrl: './privacy.component.html',
-  styleUrls: ['./privacy.component.scss']
+  templateUrl: './imprint.component.html',
+  styleUrls: ['./imprint.component.scss']
 })
-export class PrivacyComponent implements OnInit, OnDestroy {
+export class ImprintComponent implements OnInit, OnDestroy {
 
   constructor(private headerService: HeaderService) {
   }

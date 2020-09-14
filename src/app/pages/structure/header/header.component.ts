@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
 
   title = 'The Benford Checker';
 
+  year = (new Date()).getFullYear();
+
   fold: boolean;
   dark: boolean;
 
